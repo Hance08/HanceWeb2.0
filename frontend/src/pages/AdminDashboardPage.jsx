@@ -11,6 +11,8 @@ function AdminDashboardPage() {
       <p>你好, {currentUser?.username || '管理員'}! 歡迎來到管理介面。</p>
       <nav>
         <Link to="/">回到首頁</Link> | 
+        <Link to="/admin/about">編輯「關於我」</Link> |
+        <Link to="/admin/portfolio">管理作品集</Link>
         {/* Add links to other admin sections here */}
         {/* <Link to="/admin/about">編輯關於我</Link> | */}
         {/* <Link to="/admin/portfolio">管理作品集</Link> | */}

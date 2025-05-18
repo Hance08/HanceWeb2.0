@@ -8,6 +8,8 @@ import AdminDashboardPage from './pages/AdminDashboardPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import AboutPage from './pages/AboutPage'
 import PortfolioPage from './pages/PortfolioPage'
+import AdminAboutPage from './pages/AdminAboutPage';
+import AdminPortfolioPage from './pages/AdminPortfolioPage';
 
 import './App.css'
 
@@ -24,6 +26,18 @@ function App() {
           <Route path="/admin" element={
             <ProtectedRoute>
               <AdminDashboardPage />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/admin/about" element={
+            <ProtectedRoute>
+              <AdminAboutPage />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/admin/portfolio" element={
+            <ProtectedRoute>
+              <AdminPortfolioPage />
             </ProtectedRoute>
           } />
         </Routes>
