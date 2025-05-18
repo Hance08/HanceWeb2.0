@@ -10,6 +10,8 @@ import AboutPage from './pages/AboutPage'
 import PortfolioPage from './pages/PortfolioPage'
 import AdminAboutPage from './pages/AdminAboutPage';
 import AdminPortfolioPage from './pages/AdminPortfolioPage';
+import AdminAddPortfolioItemPage from './pages/AdminAddPortfolioItemPage';
+import AdminEditPortfolioItemPage from './pages/AdminEditPortfolioItemPage';
 
 import './App.css'
 
@@ -38,6 +40,18 @@ function App() {
           <Route path="/admin/portfolio" element={
             <ProtectedRoute>
               <AdminPortfolioPage />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/admin/portfolio/new" element={
+            <ProtectedRoute>
+              <AdminAddPortfolioItemPage />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/admin/portfolio/edit/:itemId" element={
+            <ProtectedRoute>
+              <AdminEditPortfolioItemPage />
             </ProtectedRoute>
           } />
         </Routes>

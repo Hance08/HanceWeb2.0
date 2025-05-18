@@ -3,7 +3,8 @@ import apiClient from './api';
 // Get all portfolio items
 const getPortfolioItems = async () => {
   try {
-    const response = await apiClient.get('/portfolio');
+    // Add a timestamp to bypass browser cache for GET requests
+    const response = await apiClient.get(`/portfolio?_t=${new Date().getTime()}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching portfolio items:', error.response?.data?.message || error.message);
