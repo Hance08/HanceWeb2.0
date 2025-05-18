@@ -10,6 +10,7 @@ function HomePage() {
       <h1>歡迎來到我的個人網站</h1>
       <nav>
         <Link to="/">首頁</Link> | 
+        <Link to="/about">關於我</Link> |
         {isAuthenticated ? (
           <>
             <Link to="/admin">管理後台</Link> | 
