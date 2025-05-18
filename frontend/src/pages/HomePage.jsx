@@ -11,6 +11,7 @@ function HomePage() {
       <nav>
         <Link to="/">首頁</Link> | 
         <Link to="/about">關於我</Link> |
+        <Link to="/portfolio">作品集</Link> |
         {isAuthenticated ? (
           <>
             <Link to="/admin">管理後台</Link> | 
