@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-// const mongoose = require('mongoose'); // 暫時註解，之後會用到
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3001; // 通常後端用 3000 或 3001
@@ -21,17 +21,10 @@ app.get('/', (req, res) => {
 // app.use('/api/about', require('./routes/aboutRoutes'));
 // app.use('/api/portfolio', require('./routes/portfolioRoutes'));
 
-// 資料庫連接 (暫時註解)
-/*
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  // useCreateIndex: true, // Mongoose 6 之後不需要
-  // useFindAndModify: false, // Mongoose 6 之後不需要
-})
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.error('MongoDB connection error:', err));
-*/
+// 資料庫連接
+mongoose.connect(process.env.MONGODB_URI) // Mongoose 6+ 不需要額外選項
+  .then(() => console.log('MongoDB Connected Successfully!'))
+  .catch(err => console.error('MongoDB Connection Error:', err));
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
