@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 100%; /* Keep this to prevent overflow */
+  width: 100%; /* Ensure #root takes full width of its parent (body) */
+  /* margin: 0 auto; --- REMOVED to allow full-width children */
+  /* padding: 2rem; --- Kept commented as it was */
+  /* text-align: center; --- REMOVED, let components/pages control their text alignment */
 }
 
 .logo {
