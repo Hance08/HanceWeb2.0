@@ -1,0 +1,225 @@
+/* HomePage.module.css */
+
+.pageContainer {
+  background-color: #f0f2f5; /* Light gray-blue page background */
+  min-height: 100vh; /* Ensure background covers full height if content is short */
+}
+
+.mainNavOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for a modern feel */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px 0; /* Increased padding for nav links inside */
+  text-align: center;
+}
+
+.navLink {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #0e172a;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #1c2f50; /* Slightly lighter midnight blue for hover */
+}
+
+.navUserGreeting {
+  margin: 0 10px;
+  color: #333333; /* Standard dark gray for text */
+  font-size: 0.95em;
+}
+
+.heroSection {
+  text-align: center;
+  background-color: #0e172a; /* User's chosen midnight blue */
+  color: #f0f0f0; /* Light text color for contrast */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px; /* Increased slightly to give more space from nav */
+  padding-bottom: 60px; /* Space below hero content */
+  padding-left: 0; /* Full width */
+  padding-right: 0; /* Full width */
+  box-sizing: border-box; /* To include padding and border in the element's total width and height */
+}
+
+.heroTitle {
+  font-size: 3em; /* Slightly larger for full screen hero */
+  margin-bottom: 25px;
+  color: #ffffff; /* Pure white for title */
+  font-weight: 600;
+  padding: 0 20px; /* Ensured horizontal padding for text on smaller screens */
+}
+
+.heroSubtitle {
+  font-size: 1.4em; /* Slightly larger */
+  margin-bottom: 40px; /* Increased margin */
+  color: #e0e0e0; /* Lighter gray for subtitle */
+  max-width: 700px; /* Wider for full screen */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  padding: 0 20px; /* Add horizontal padding here if needed for text on smaller screens */
+}
+
+/* General CTA Button Style */
+.ctaButton {
+  display: inline-block;
+  padding: 12px 28px; /* Increased padding */
+  text-decoration: none;
+  border-radius: 25px; /* More rounded */
+  font-size: 1em;
+  font-weight: 500;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  border: 2px solid transparent;
+}
+
+/* CTA Button for light backgrounds (default) */
+.ctaButtonPrimary {
+  background-color: #0e172a; /* Midnight blue */
+  color: white;
+  border-color: #0e172a;
+}
+
+.ctaButtonPrimary:hover {
+  background-color: #1c2f50; /* Slightly lighter midnight blue */
+  border-color: #1c2f50;
+  transform: translateY(-2px);
+}
+
+/* CTA Button for dark backgrounds (e.g., Hero Section) */
+.ctaButtonOutline {
+  background-color: transparent;
+  color: #f0f0f0; /* Light text */
+  border: 2px solid #f0f0f0; /* Light border */
+}
+
+.ctaButtonOutline:hover {
+  background-color: rgba(240, 240, 240, 0.1); /* Subtle light background on hover */
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* CTA Button for danger/warning actions */
+.ctaButtonDanger {
+  background-color: #dc3545; /* Red for danger */
+  color: white;
+  border-color: #dc3545;
+}
+
+.ctaButtonDanger:hover {
+  background-color: #c82333; /* Darker red on hover */
+  border-color: #bd2130;
+  transform: translateY(-2px);
+}
+
+/* Styles for making sections full-width background with constrained content */
+.fullWidthBgSection {
+  padding-left: 0;
+  padding-right: 0;
+  /* Vertical padding will be inherited from .section or specific section styles */
+}
+
+.contentWrapper {
+  max-width: 1100px; /* Or your preferred content width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px; /* Gutters for the content inside the wrapper */
+  padding-right: 20px;
+}
+
+/* General Section Styling (for sections after Hero) */
+.section {
+  padding: 50px 20px; /* Default padding for sections */
+  text-align: center;
+}
+
+.sectionAlternateBg {
+  background-color: #f0f2f5; /* Consistent with body background for seamless transition */
+}
+
+.sectionTitle {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: #0e172a; /* Midnight blue for titles on light backgrounds */
+  font-weight: 600;
+}
+
+.sectionText {
+  font-size: 1.15em;
+  color: #495057; /* Darker gray for better readability */
+  max-width: 700px;
+  margin: 0 auto 25px auto;
+  line-height: 1.7;
+}
+
+/* Card Style Definition */
+.contentCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.aboutCardContent {
+  text-align: center;
+  box-shadow: none; 
+  padding: 20px 0;
+  background-color: #ffffff; 
+  border-radius: 8px; 
+}
+
+/* For sections that themselves act as a full-width card background */
+.sectionAsCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.skillsSectionCard {
+  margin-top: 0; 
+  margin-bottom: 0;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.skillsList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.skillItem {
+  background-color: #f0f8ff;
+  color: #0e172a;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skillItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} 
