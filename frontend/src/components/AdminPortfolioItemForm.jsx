@@ -38,7 +38,7 @@ const buttonStyle = {
   marginTop: '10px',
 };
 
-function AdminPortfolioItemForm({ initialData = {}, onSubmit, isSaving, error }) {
+function AdminPortfolioItemForm({ initialData, onSubmit, isSaving, error }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -50,9 +50,7 @@ function AdminPortfolioItemForm({ initialData = {}, onSubmit, isSaving, error })
   });
 
   useEffect(() => {
-    console.log('[AdminPortfolioItemForm useEffect] Triggered. initialData:', initialData);
     if (initialData && Object.keys(initialData).length > 0) {
-      console.log('[AdminPortfolioItemForm useEffect] initialData has content. Setting formData.');
       let isoDate = '';
       if (initialData.projectDate) {
         const date = new Date(initialData.projectDate);
@@ -70,8 +68,6 @@ function AdminPortfolioItemForm({ initialData = {}, onSubmit, isSaving, error })
         projectDate: isoDate,
       });
     } else {
-      console.log('[AdminPortfolioItemForm useEffect] initialData is null or empty. Resetting formData to empty strings.');
-      // Reset form if initialData is not present (e.g., for "Add New" or if data fetch fails in edit mode initially)
       setFormData({
         title: '',
         description: '',
@@ -86,27 +82,21 @@ function AdminPortfolioItemForm({ initialData = {}, onSubmit, isSaving, error })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`[AdminPortfolioItemForm handleChange] name: ${name}, value: ${value}`);
     setFormData(prev => {
       const newState = { ...prev, [name]: value };
-      console.log('[AdminPortfolioItemForm handleChange] new formData state:', newState);
       return newState;
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('[AdminPortfolioItemForm handleSubmit] Current formData:', formData);
     const dataToSubmit = {
       ...formData,
       tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag),
       projectDate: formData.projectDate || null,
     };
-    console.log('[AdminPortfolioItemForm handleSubmit] Submitting data:', dataToSubmit);
     onSubmit(dataToSubmit);
   };
-
-  console.log('[AdminPortfolioItemForm Render] Current formData:', formData);
 
   return (
     <form onSubmit={handleSubmit} style={formStyle}>
