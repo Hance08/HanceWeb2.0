@@ -1,7 +1,8 @@
 /* HomePage.module.css */
 
 .pageContainer {
-  background-color: #f0f2f5; /* Light gray-blue page background */
+  /* background-color: #0e172a; */ /* Removed to allow particles to be visible */
+  background-color: transparent;
   min-height: 100vh; /* Ensure background covers full height if content is short */
 }
 
@@ -11,44 +12,114 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for a modern feel */
+  /* background-color: #0e172a; */ /* Partially transparent or remove if particles have own bg */
+  background-color: rgba(14, 23, 42, 0.85); /* Example: Slightly transparent midnight blue */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px 0; /* Increased padding for nav links inside */
-  text-align: center;
+  padding: 15px 0; /* Vertical padding for the overlay */
+  border-bottom: 1px solid #4a4c4f;
+}
+
+/* New style for navContainer */
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90%; /* Adjust as needed for your site's max width */
+  margin: 0 auto; /* Center the nav container */
+  padding: 0 20px; /* Side padding for the container content */
+  width: 100%; 
+}
+
+/* New style for navLinksGroup (items on the right) */
+.navLinksGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between links and items in this group */
 }
 
 .navLink {
-  margin: 0 15px;
   text-decoration: none;
-  color: #0e172a;
+  color: #f3f3f3;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .navLink:hover {
-  color: #1c2f50; /* Slightly lighter midnight blue for hover */
+  color: #acb5c5; /* Slightly lighter midnight blue for hover */
 }
 
 .navUserGreeting {
-  margin: 0 10px;
   color: #333333; /* Standard dark gray for text */
   font-size: 0.95em;
 }
 
-.heroSection {
+/* Style for buttons specifically within the navbar to ensure consistency */
+.navButton {
+  padding: 8px 16px; 
+  font-size: 0.9em; /* Slightly smaller font for navbar buttons */
+  margin: 0; /* Override default margins from ctaButton if any */
+}
+
+.heroContainer {
   text-align: center;
-  background-color: #0e172a; /* User's chosen midnight blue */
+  /* background-color: #0e172a; */ /* Removed to allow particles to be visible */
+  background-color: transparent;
   color: #f0f0f0; /* Light text color for contrast */
   min-height: 100vh; /* Full viewport height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 100px; /* Increased slightly to give more space from nav */
-  padding-bottom: 60px; /* Space below hero content */
+  border: 1px solid #dc3545;
+  /* padding-top: 100px; Increased slightly to give more space from nav */
+  /* padding-bottom: 60px; Space below hero content */
   padding-left: 0; /* Full width */
   padding-right: 0; /* Full width */
   box-sizing: border-box; /* To include padding and border in the element's total width and height */
+}
+
+.socialLinksContainer {
+  display: flex;
+  justify-content: center; /* Center links horizontally */
+  gap: 20px; /* Space between social links */
+  margin-top: 15px; /* Space above the social links */
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  color: #f0f0f0; /* Light color for links */
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: #acb5c5; /* Lighter color on hover */
+}
+
+/* Placeholder for icon styling - replace span with actual icon component/SVG later */
+.socialLink span {
+  font-family: 'Font Awesome 5 Brands'; 
+  content: '\f09b';
+  display: inline-block; 
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  font-size: 0.8em;
+}
+
+.heroProfileImage {
+  width: 150px; /* Adjust size as needed */
+  height: 150px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  margin-bottom: 20px; /* Space below the image */
+  border: 3px solid #f0f0f0; /* Optional: adds a light border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow */
 }
 
 .heroTitle {
@@ -86,14 +157,14 @@
 
 /* CTA Button for light backgrounds (default) */
 .ctaButtonPrimary {
-  background-color: #0e172a; /* Midnight blue */
+  background-color: #0d1424; /* Midnight blue */
   color: white;
-  border-color: #0e172a;
+  border-color: #ffffff;
 }
 
 .ctaButtonPrimary:hover {
   background-color: #1c2f50; /* Slightly lighter midnight blue */
-  border-color: #1c2f50;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -126,8 +197,11 @@
 
 /* Styles for making sections full-width background with constrained content */
 .fullWidthBgSection {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border: 1px solid #dc3545;
   /* Vertical padding will be inherited from .section or specific section styles */
 }
 
@@ -145,20 +219,16 @@
   text-align: center;
 }
 
-.sectionAlternateBg {
-  background-color: #f0f2f5; /* Consistent with body background for seamless transition */
-}
-
 .sectionTitle {
   font-size: 2.2em;
   margin-bottom: 30px;
-  color: #0e172a; /* Midnight blue for titles on light backgrounds */
+  color: #ffffff; /* Midnight blue for titles on light backgrounds */
   font-weight: 600;
 }
 
 .sectionText {
   font-size: 1.15em;
-  color: #495057; /* Darker gray for better readability */
+  color: #ffffff; /* Darker gray for better readability */
   max-width: 700px;
   margin: 0 auto 25px auto;
   line-height: 1.7;
@@ -178,13 +248,13 @@
   text-align: center;
   box-shadow: none; 
   padding: 20px 0;
-  background-color: #ffffff; 
+  background-color: #0e172a; 
   border-radius: 8px; 
 }
 
 /* For sections that themselves act as a full-width card background */
 .sectionAsCard {
-  background-color: #ffffff;
+  background-color: #0e172a;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-top: 30px;

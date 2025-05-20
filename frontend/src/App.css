@@ -3,7 +3,7 @@
   width: 100%; /* Ensure #root takes full width of its parent (body) */
   /* margin: 0 auto; --- REMOVED to allow full-width children */
   /* padding: 2rem; --- Kept commented as it was */
-  /* text-align: center; --- REMOVED, let components/pages control their text alignment */
+  text-align: center;
 }
 
 .logo {
