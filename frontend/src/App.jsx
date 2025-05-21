@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { useSprings, animated, useTransition } from '@react-spring/web'
-import { AuthProvider } from './contexts/AuthContext'
+import { AuthProvider, useAuth } from './contexts/AuthContext'
 
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
@@ -198,6 +198,37 @@ const AnimatedShapesBackground = () => {
   );
 };
 
+// Navigation Bar Component (extracted and modified from HomePage)
+const NavigationBar = () => {
+  const { isAuthenticated, currentUser, logout } = useAuth();
+
+  return (
+    <div className="mainNavOverlay"> {/* Changed from styles.mainNavOverlay */}
+      <nav className="navContainer"> {/* Changed from styles.navContainer */}
+        <Link to="/" className="navLink">Hance Web</Link> {/* Changed from styles.navLink */}
+        <div className="navLinksGroup"> {/* Changed from styles.navLinksGroup */}
+          <Link to="/about" className="navLink">關於我</Link>
+          <Link to="/portfolio" className="navLink">作品集</Link>
+          {isAuthenticated ? (
+            <>
+              <Link to="/admin" className="navLink">管理後台</Link>
+              <span className="navUserGreeting">你好, {currentUser?.username || '管理員'}! </span> {/* Changed from styles.navUserGreeting */}
+              <button 
+                onClick={logout} 
+                className={`ctaButton ctaButtonDanger navButton`} // Changed from styles and combined classes
+              >
+                登出
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className={`navLink navButton`}>登入</Link> // Changed from styles and combined classes
+          )}
+        </div>
+      </nav>
+    </div>
+  );
+};
+
 function App() {
   console.log("App component rendering...");
 
@@ -205,6 +236,7 @@ function App() {
     <AuthProvider>
       <AnimatedShapesBackground />
       <Router>
+        <NavigationBar /> {/* Added NavigationBar here */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />

@@ -4,60 +4,7 @@
   /* background-color: #0e172a; */ /* Removed to allow particles to be visible */
   background-color: transparent;
   min-height: 100vh; /* Ensure background covers full height if content is short */
-}
-
-.mainNavOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  /* background-color: #0e172a; */ /* Partially transparent or remove if particles have own bg */
-  background-color: rgba(14, 23, 42, 0.85); /* Example: Slightly transparent midnight blue */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px 0; /* Vertical padding for the overlay */
-  border-bottom: 1px solid #4a4c4f;
-}
-
-/* New style for navContainer */
-.navContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 90%; /* Adjust as needed for your site's max width */
-  margin: 0 auto; /* Center the nav container */
-  padding: 0 20px; /* Side padding for the container content */
-  width: 100%; 
-}
-
-/* New style for navLinksGroup (items on the right) */
-.navLinksGroup {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* Spacing between links and items in this group */
-}
-
-.navLink {
-  text-decoration: none;
-  color: #f3f3f3;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.navLink:hover {
-  color: #acb5c5; /* Slightly lighter midnight blue for hover */
-}
-
-.navUserGreeting {
-  color: #333333; /* Standard dark gray for text */
-  font-size: 0.95em;
-}
-
-/* Style for buttons specifically within the navbar to ensure consistency */
-.navButton {
-  padding: 8px 16px; 
-  font-size: 0.9em; /* Slightly smaller font for navbar buttons */
-  margin: 0; /* Override default margins from ctaButton if any */
+  padding-top: 80px; /* Added padding to prevent content from hiding behind fixed/absolute navbar */
 }
 
 .heroContainer {
@@ -70,12 +17,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid #dc3545;
   /* padding-top: 100px; Increased slightly to give more space from nav */
   /* padding-bottom: 60px; Space below hero content */
   padding-left: 0; /* Full width */
   padding-right: 0; /* Full width */
   box-sizing: border-box; /* To include padding and border in the element's total width and height */
+  line-height: 1.7;
+  padding: 0 20px; /* Add horizontal padding here if needed for text on smaller screens */
 }
 
 .socialLinksContainer {
@@ -126,7 +74,6 @@
   font-size: 3em; /* Slightly larger for full screen hero */
   margin-bottom: 25px;
   color: #ffffff; /* Pure white for title */
-  font-weight: 600;
   padding: 0 20px; /* Ensured horizontal padding for text on smaller screens */
 }
 
@@ -201,7 +148,6 @@
   padding-right: 30px;
   margin-left: 30px;
   margin-right: 30px;
-  border: 1px solid #dc3545;
   /* Vertical padding will be inherited from .section or specific section styles */
 }
 
@@ -222,7 +168,7 @@
 .sectionTitle {
   font-size: 2.2em;
   margin-bottom: 30px;
-  color: #ffffff; /* Midnight blue for titles on light backgrounds */
+  color: #62aae2; /* Midnight blue for titles on light backgrounds */
   font-weight: 600;
 }
 
@@ -244,52 +190,46 @@
   text-align: left;
 }
 
-.aboutCardContent {
-  text-align: center;
-  box-shadow: none; 
-  padding: 20px 0;
-  background-color: #0e172a; 
-  border-radius: 8px; 
-}
-
 /* For sections that themselves act as a full-width card background */
 .sectionAsCard {
-  background-color: #0e172a;
+  background-color: rgba(14, 23, 42, 0.85); /* Adjusted for transparency */
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.7); /* Added glow effect */
   margin-top: 30px;
   margin-bottom: 30px;
+  border: 1px solid #36334f;
 }
 
-.skillsSectionCard {
+/* Renamed from skillsSectionCard, can be adjusted if specific styling for life log is needed */
+.lifeLogSectionCard {
   margin-top: 0; 
   margin-bottom: 0;
   padding-top: 30px;
   padding-bottom: 50px;
 }
 
-.skillsList {
+/* Placeholder for potential .lifeLogList and .lifeLogItem if you add a list structure later */
+/*
+.lifeLogList {
   list-style-type: none;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
   margin-top: 25px;
+  display: flex;
+  flex-direction: column; 
+  gap: 15px;
 }
 
-.skillItem {
+.lifeLogItem {
   background-color: #f0f8ff;
   color: #0e172a;
-  padding: 12px 20px;
-  border-radius: 20px;
-  font-size: 0.95em;
-  font-weight: 500;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+*/
 
-.skillItem:hover {
+.skillItem:hover { /* This class is no longer used, can be removed */
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 } 
