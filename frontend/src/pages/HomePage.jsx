@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
 import styles from './HomePage.module.css'; // Import CSS Modules
 import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons
 

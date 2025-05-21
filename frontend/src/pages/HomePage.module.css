@@ -208,27 +208,6 @@
   padding-bottom: 50px;
 }
 
-/* Placeholder for potential .lifeLogList and .lifeLogItem if you add a list structure later */
-/*
-.lifeLogList {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column; 
-  gap: 15px;
-}
-
-.lifeLogItem {
-  background-color: #f0f8ff;
-  color: #0e172a;
-  padding: 15px 20px;
-  border-radius: 8px;
-  font-size: 1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
-}
-*/
-
 .skillItem:hover { /* This class is no longer used, can be removed */
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
