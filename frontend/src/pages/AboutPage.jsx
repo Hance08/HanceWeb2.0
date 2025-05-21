@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { aboutService } from '../services/aboutService';
-import './AboutPage.css'; // Import the CSS file
+import './css/AboutPage.css'; // Import the CSS file
 
 function AboutPage() {
   const [sections, setSections] = useState([]);

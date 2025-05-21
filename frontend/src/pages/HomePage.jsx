@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './HomePage.module.css'; // Import CSS Modules
+import styles from './css/HomePage.module.css'; // Import CSS Modules
 import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons
 
 function HomePage() {
