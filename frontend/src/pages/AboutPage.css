@@ -1,0 +1,107 @@
+/* frontend/src/pages/AboutPage.css */
+
+/* --- 共用元素 --- */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  padding-bottom: 10px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.section-card {
+  background-color: rgba(14, 23, 42, 0.85);
+  border: 1px solid #36334f;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.7);
+}
+
+.section-title {
+  margin-top: 0;
+  color: #62aae2; /* Darker blue for section titles */
+  font-size: 1.5em;
+}
+
+.loading-message {
+  font-size: 1.2em;
+  color: #555;
+  text-align: center;
+  padding: 50px;
+}
+
+.error-message {
+  color: red;
+  background-color: #ffebee;
+  border: 1px solid red;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.no-content-message {
+  font-size: 1.1em;
+  color: #777;
+  text-align: center;
+  padding: 40px;
+}
+/* --- 共用元素 --- */
+
+/* --- Custom styles for the Introduction section --- */
+/* Uncomment and modify these styles as needed */
+
+/* Styles for the introduction section card itself */
+/*
+.introduction-layout {
+  background-color: rgba(20, 30, 50, 0.9); 
+  border: 1px solid #4a4e69;
+}
+*/
+
+/* Styles for the content within the introduction section */
+
+.introduction-content {
+  font-size: 1.1em; 
+  color: #e0e0e0;
+  text-align: justify; 
+}
+
+
+/* Example of using Flexbox for layout within the introduction content */
+/*
+.introduction-content {
+  display: flex;
+  align-items: center; 
+  gap: 20px; 
+}
+
+.introduction-content img {
+  max-width: 150px; 
+  border-radius: 50%; 
+}
+
+.introduction-content p {
+  flex: 1;
+}
+*/
+
+/* Example of using CSS Grid for layout within the introduction content */
+/*
+.introduction-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  gap: 20px;
+  align-items: center;
+}
+
+.introduction-content img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+*/ 
