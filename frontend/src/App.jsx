@@ -38,9 +38,8 @@ const NavigationBar = () => {
                 登出
               </button>
             </>
-          ) : (
-            <Link to="/login" className={`navLink navButton`}>登入</Link> // Changed from styles and combined classes
-          )}
+          ) : ""
+          }
         </div>
       </nav>
     </div>
