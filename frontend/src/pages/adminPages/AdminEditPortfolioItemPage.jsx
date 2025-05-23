@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { portfolioService } from '../services/portfolioService';
-import AdminPortfolioItemForm from '../components/AdminPortfolioItemForm';
+import { portfolioService } from '../../services/portfolioService';
+import AdminPortfolioItemForm from '../../components/AdminPortfolioItemForm';
 
 function AdminEditPortfolioItemPage() {
   const { itemId } = useParams();

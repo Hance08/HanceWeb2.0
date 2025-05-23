@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { aboutService } from '../services/aboutService';
+import { aboutService } from '../../services/aboutService';
 import { Link } from 'react-router-dom';
 
 const sectionFriendlyNames = {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { portfolioService } from '../services/portfolioService';
+import { portfolioService } from '../../services/portfolioService';
 import { Link, useNavigate } from 'react-router-dom'; // Added useNavigate
 
 // Basic styling (can be moved to a CSS file)
