@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Username is required'],
     unique: true,
-    trim: true,
+    trim: true, // Optional: trim whitespace from username
     lowercase: true, // Optional: store username in lowercase for consistency
   },
   password: {
