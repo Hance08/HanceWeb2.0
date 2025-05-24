@@ -12,8 +12,9 @@
   /* background-color: #0e172a; */ /* Removed to allow particles to be visible */
   background-color: transparent;
   color: #f0f0f0; /* Light text color for contrast */
-  min-height: 100vh; /* Full viewport height */
-  display: flex;
+  min-height: 80vh; /* Full viewport height */
+  /* display: flex; */
+  margin-top: 160px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -75,6 +76,15 @@
   margin-bottom: 25px;
   color: #ffffff; /* Pure white for title */
   padding: 0 20px; /* Ensured horizontal padding for text on smaller screens */
+  text-shadow:
+    0 0 5px #fff,       /* 1. 內層白色光暈 (銳利) */
+    0 0 10px #fff,      /* 2. 中層白色光暈 */
+    /* 0 0 5px #fff,      3. 外層白色光暈 (柔和) */
+    0 0 20px #0077ff,  /* 4. 藍色主發光 (開始擴散) */
+    0 0 35px #0077ff,  /* 5. 藍色主發光 (更擴散) */
+    0 0 40px #0077ff,  /* 6. 藍色主發光 (再擴散) */
+    0 0 50px #0077ff,  /* 7. 藍色主發光 (更廣) */
+    0 0 75px #0077ff;  /* 8. 藍色主發光 (最廣，最柔和) */
 }
 
 .heroSubtitle {
@@ -202,8 +212,6 @@
 
 /* Renamed from skillsSectionCard, can be adjusted if specific styling for life log is needed */
 .lifeLogSectionCard {
-  margin-top: 0; 
-  margin-bottom: 0;
   padding-top: 30px;
   padding-bottom: 50px;
 }
