@@ -32,6 +32,7 @@ function AdminAboutPage() {
         initialEditStates[section.sectionName] = {
           title: section.title || '',
           content: section.content || '',
+          isMarkdown: section.isMarkdown || false,
           saving: false,
           saveError: null,
         };
@@ -70,6 +71,7 @@ function AdminAboutPage() {
       const payload = {
         title: sectionData.title,
         content: sectionData.content,
+        isMarkdown: sectionData.isMarkdown,
       };
       const updatedSection = await aboutService.updateAboutSection(sectionName, payload);
       
@@ -85,6 +87,7 @@ function AdminAboutPage() {
           ...prev[sectionName],
           title: updatedSection.title,
           content: updatedSection.content,
+          isMarkdown: updatedSection.isMarkdown,
           saving: false,
         }
       }));
@@ -114,7 +117,7 @@ function AdminAboutPage() {
   const allPossibleSectionNames = Object.keys(sectionFriendlyNames);
   for (const name of allPossibleSectionNames) {
     if (!editStates[name]) {
-      editStates[name] = { title: '', content: '', saving: false, saveError: null };
+      editStates[name] = { title: '', content: '', isMarkdown: false, saving: false, saveError: null };
     }
   }
 
@@ -127,7 +130,7 @@ function AdminAboutPage() {
       <h1>編輯「關於我」內容</h1>
       {allPossibleSectionNames.map((sectionName) => {
         const sectionData = sections[sectionName]; // Original data from server
-        const currentEditState = editStates[sectionName] || { title: '', content: '', saving: false, saveError: null };
+        const currentEditState = editStates[sectionName] || { title: '', content: '', isMarkdown: false, saving: false, saveError: null };
 
         return (
           <div key={sectionName} style={{ border: '1px solid #ccc', padding: '20px', marginBottom: '20px' }}>
@@ -151,6 +154,17 @@ function AdminAboutPage() {
                   onChange={(e) => handleInputChange(sectionName, 'content', e.target.value)}
                   rows="8"
                   style={{ width: '100%', padding: '8px', marginBottom: '10px', boxSizing: 'border-box' }}
+                />
+              </div>
+              <div style={{ marginBottom: '10px' }}>
+                <label htmlFor={`markdown-${sectionName}`} style={{ marginRight: '10px' }}>
+                  使用 Markdown 格式:
+                </label>
+                <input
+                  type="checkbox"
+                  id={`markdown-${sectionName}`}
+                  checked={currentEditState.isMarkdown || false}
+                  onChange={(e) => handleInputChange(sectionName, 'isMarkdown', e.target.checked)}
                 />
               </div>
               <button type="submit" disabled={currentEditState.saving}>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { aboutService } from '../services/aboutService';
 import './css/AboutPage.css'; // Import the CSS file
 
@@ -48,9 +49,6 @@ function AboutPage() {
 
         const contentClasses = ['content'];
         switch (section.sectionName) {
-          case 'introduction':
-            contentClasses.push('introduction-content');
-            break;
           case 'skills':
             contentClasses.push('skills-content');
             break;
@@ -70,10 +68,21 @@ function AboutPage() {
         return (
           <section key={section._id || section.sectionName} className={sectionClasses.join(' ')}>
             <h2 className="section-title">{section.title || section.sectionName.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</h2>
-            {/* If content is Markdown, use ReactMarkdown or similar */}
-            {/* <ReactMarkdown>{section.content}</ReactMarkdown> */}
-            {/* For plain text or HTML (ensure it's sanitized if HTML comes from user input) */}
-            <div className={contentClasses.join(' ')} dangerouslySetInnerHTML={{ __html: section.content.replace(/\n/g, '<br />') }} />
+            {/* Conditional rendering based on section.isMarkdown */}
+            {section.isMarkdown ? (
+              <ReactMarkdown 
+                components={{
+                  div: ({node, ...props}) => <div className={contentClasses.join(' ')} {...props} />
+                }}
+              >
+                {section.content || ''}
+              </ReactMarkdown>
+            ) : (
+              <div 
+                className={contentClasses.join(' ')} 
+                dangerouslySetInnerHTML={{ __html: section.content ? section.content.replace(/\n/g, '<br />') : '' }} 
+              />
+            )}
             {/* A safer way for plain text: 
             <p style={{ whiteSpace: 'pre-wrap' }}>{section.content}</p> 
             */}
