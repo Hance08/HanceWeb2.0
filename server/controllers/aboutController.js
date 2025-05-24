@@ -26,7 +26,9 @@ exports.updateAboutSection = async (req, res) => {
   const { sectionName } = req.params;
   const { title, content, isMarkdown } = req.body;
 
-  // Validate that sectionName is one of the allowed enum values from the model
+  // Validate that sectionName is one of the allowed enum values
+  // Mongoose schema validation on save() will also catch this.
+  // Accessing enumValues directly from the schema path for base fields.
   if (!AboutSection.schema.path('sectionName').enumValues.includes(sectionName)) {
     return res.status(400).json({ message: `Invalid section name: ${sectionName}` });
   }
@@ -34,16 +36,52 @@ exports.updateAboutSection = async (req, res) => {
   try {
     let section = await AboutSection.findOne({ sectionName });
 
-    if (section) {
-      // Update existing section
-      section.title = title !== undefined ? title : section.title; // Update title if provided
-      section.content = content !== undefined ? content : section.content; // Update content if provided
-      section.isMarkdown = isMarkdown !== undefined ? isMarkdown : section.isMarkdown; // Update isMarkdown if provided
-      // section.order = order !== undefined ? order : section.order; // If using order
+    if (!section) {
+      // Create new section
+      const initialData = { sectionName, title };
+
+      if (sectionName === 'skills') {
+        initialData.content = Array.isArray(content) ? content : (content !== undefined ? [] : undefined);
+        // isMarkdown is not applicable to SkillsSection directly.
+      } else {
+        // For TextContent sections (introduction, education, etc.)
+        initialData.content = content;
+        if (isMarkdown !== undefined) {
+          initialData.isMarkdown = isMarkdown;
+        }
+      }
+      section = new AboutSection(initialData);
     } else {
-      // Create new section if it doesn't exist (upsert logic)
-      // This ensures that an admin can create sections for the first time
-      section = new AboutSection({ sectionName, title, content, isMarkdown });
+      // Update existing section
+      if (title !== undefined) {
+        section.title = title;
+      }
+
+      if (content !== undefined) {
+        section.content = content;
+      }
+
+      // Only attempt to set isMarkdown if the section is not 'skills' (or other structured types)
+      // and isMarkdown is provided.
+      if (sectionName !== 'skills' && isMarkdown !== undefined) {
+         // Check if the path exists on the specific discriminator model's schema
+         const DiscriminatorModel = AboutSection.discriminators[sectionName];
+         if (DiscriminatorModel && DiscriminatorModel.schema.path('isMarkdown')) {
+            section.isMarkdown = isMarkdown;
+         } else if (!DiscriminatorModel && AboutSection.schema.path('isMarkdown')){
+            // This case might apply if it's a base model field somehow, though unlikely with current setup
+            // For TextContentSection types, they inherit from base and then have their own schema applied,
+            // but isMarkdown is defined on the TextContentSectionSchema itself, not base.
+            // This logic branch might be redundant if all text sections use TextContentSectionSchema
+            // which is added via discriminator, so check on DiscriminatorModel is more direct.
+         }      
+      } else if (sectionName === 'skills') {
+        // Ensure isMarkdown is not set on skills sections
+        // Mongoose might strip fields not in schema, but being explicit can be good.
+        if (section.isMarkdown !== undefined) {
+            section.isMarkdown = undefined; 
+        }
+      }
     }
 
     const updatedSection = await section.save();
@@ -51,10 +89,11 @@ exports.updateAboutSection = async (req, res) => {
   } catch (error) {
     if (error.name === 'ValidationError') {
         const messages = Object.values(error.errors).map(val => val.message);
-        return res.status(400).json({ message: messages.join(', ') });
+        console.error('Validation Error in updateAboutSection:', JSON.stringify(error.errors, null, 2));
+        return res.status(400).json({ message: `Validation Failed: ${messages.join(', ')}` });
     }
-    console.error('Error in updateAboutSection:', error);
-    res.status(500).json({ message: 'Server error' });
+    console.error(`Error in updateAboutSection for section '${sectionName}':`, error);
+    res.status(500).json({ message: 'Server error during update.' });
   }
 };
 
