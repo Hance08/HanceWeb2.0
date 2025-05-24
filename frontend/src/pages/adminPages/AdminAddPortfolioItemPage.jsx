@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { portfolioService } from '../../services/portfolioService';
-import AdminPortfolioItemForm from '../../components/AdminPortfolioItemForm';
+import AdminPortfolioItemForm from '../../components/admin/portfolio/AdminPortfolioItemForm';
 
 function AdminAddPortfolioItemPage() {
   const navigate = useNavigate();
