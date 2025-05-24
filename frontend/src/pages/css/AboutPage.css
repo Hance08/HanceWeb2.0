@@ -62,10 +62,28 @@
 /* --- 個別元素 --- */
 .skills-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  flex-direction: column;
+  max-width: 800px;
+  gap: 20px;
 }
+
+.skill-item-card { 
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px;
+  border: 1px solid #36334f;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.7); */
+  align-items: center;
+}
+
+.skill-icon {
+  font-size: 2em;
+  color: #1367ed;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
 /* --- 個別元素 --- */

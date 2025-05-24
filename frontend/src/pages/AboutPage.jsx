@@ -68,7 +68,7 @@ function AboutPage() {
                     {skill.icon && <i className={`${skill.icon} skill-icon`}></i>}
                     <h4 className="skill-name">{skill.name}</h4>
                     {skill.level && <p className="skill-level">程度: {skill.level}</p>}
-                    {skill.category && <p className="skill-category">分類: {skill.category}</p>}
+                    {/* {skill.category && <p className="skill-category">分類: {skill.category}</p>} */}
                     {skill.description && <p className="skill-description">{skill.description}</p>}
                   </div>
                 ))}
