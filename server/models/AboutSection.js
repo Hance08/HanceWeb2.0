@@ -17,6 +17,10 @@ const aboutSectionSchema = new mongoose.Schema({
     required: [true, 'Content for the section is required'],
     trim: true,
   },
+  isMarkdown: { // New field to indicate if content is Markdown
+    type: Boolean,
+    default: false, // Default to false, assuming existing content is not Markdown
+  },
   // Optional: if you want to have a display order for sections
   // order: {
   //   type: Number,

@@ -24,7 +24,7 @@ exports.getAboutSection = async (req, res) => {
 // @access  Private/Admin
 exports.updateAboutSection = async (req, res) => {
   const { sectionName } = req.params;
-  const { title, content } = req.body;
+  const { title, content, isMarkdown } = req.body;
 
   // Validate that sectionName is one of the allowed enum values from the model
   if (!AboutSection.schema.path('sectionName').enumValues.includes(sectionName)) {
@@ -38,11 +38,12 @@ exports.updateAboutSection = async (req, res) => {
       // Update existing section
       section.title = title !== undefined ? title : section.title; // Update title if provided
       section.content = content !== undefined ? content : section.content; // Update content if provided
+      section.isMarkdown = isMarkdown !== undefined ? isMarkdown : section.isMarkdown; // Update isMarkdown if provided
       // section.order = order !== undefined ? order : section.order; // If using order
     } else {
       // Create new section if it doesn't exist (upsert logic)
       // This ensures that an admin can create sections for the first time
-      section = new AboutSection({ sectionName, title, content });
+      section = new AboutSection({ sectionName, title, content, isMarkdown });
     }
 
     const updatedSection = await section.save();
