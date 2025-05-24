@@ -44,48 +44,62 @@ function AboutPage() {
     <div className="container">
       <h1 className="page-title">關於我</h1>
       {sections.map((section) => {
-        
         const sectionClasses = ['section-card'];
+        const contentContainerClasses = ['content']; // Renamed for clarity
 
-        const contentClasses = ['content'];
-        switch (section.sectionName) {
-          case 'skills':
-            contentClasses.push('skills-content');
-            break;
-          case 'education':
-            contentClasses.push('education-content');
-            break;
-          case 'experience':
-            contentClasses.push('experience-content');
-            break;
-          case 'contact':
-            contentClasses.push('contact-content');
-            break;
-          default:
-            break;
+        if (section.sectionName === 'skills') {
+          contentContainerClasses.push('skills-content');
+        } else if (section.sectionName === 'education') {
+          contentContainerClasses.push('education-content');
+        } else if (section.sectionName === 'experience') {
+          contentContainerClasses.push('experience-content');
+        } else if (section.sectionName === 'contact') {
+          contentContainerClasses.push('contact-content');
+        }
+
+        let contentElement;
+
+        if (section.sectionName === 'skills') {
+          if (Array.isArray(section.content) && section.content.length > 0) {
+            contentElement = (
+              <div className={contentContainerClasses.join(' ')}>
+                {section.content.map((skill, index) => (
+                  <div key={skill.name || index} className="skill-item-card">
+                    {skill.icon && <i className={`${skill.icon} skill-icon`}></i>}
+                    <h4 className="skill-name">{skill.name}</h4>
+                    {skill.level && <p className="skill-level">程度: {skill.level}</p>}
+                    {skill.category && <p className="skill-category">分類: {skill.category}</p>}
+                    {skill.description && <p className="skill-description">{skill.description}</p>}
+                  </div>
+                ))}
+              </div>
+            );
+          } else {
+            contentElement = <div className={contentContainerClasses.join(' ')}><p>尚未新增技能。</p></div>;
+          }
+        } else {
+          // For other sections (introduction, education, experience, contact)
+          if (section.isMarkdown) {
+            contentElement = (
+              <div className={contentContainerClasses.join(' ')}>
+                <ReactMarkdown>
+                  {section.content || ''}
+                </ReactMarkdown>
+              </div>
+            );
+          } else {
+            contentElement = (
+              <div className={contentContainerClasses.join(' ')} style={{ whiteSpace: 'pre-wrap' }}>
+                {section.content || ''}
+              </div>
+            );
+          }
         }
 
         return (
           <section key={section._id || section.sectionName} className={sectionClasses.join(' ')}>
             <h2 className="section-title">{section.title || section.sectionName.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</h2>
-            {/* Conditional rendering based on section.isMarkdown */}
-            {section.isMarkdown ? (
-              <ReactMarkdown 
-                components={{
-                  div: ({node, ...props}) => <div className={contentClasses.join(' ')} {...props} />
-                }}
-              >
-                {section.content || ''}
-              </ReactMarkdown>
-            ) : (
-              <div 
-                className={contentClasses.join(' ')} 
-                dangerouslySetInnerHTML={{ __html: section.content ? section.content.replace(/\n/g, '<br />') : '' }} 
-              />
-            )}
-            {/* A safer way for plain text: 
-            <p style={{ whiteSpace: 'pre-wrap' }}>{section.content}</p> 
-            */}
+            {contentElement}
           </section>
         );
       })}
