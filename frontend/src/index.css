@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  font-family: 'LXGW WenKai TC', 'Noto Serif', serif;
+  font-family: 'Quicksand', 'LXGW WenKai TC', 'Noto Serif', serif;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -56,6 +56,8 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
