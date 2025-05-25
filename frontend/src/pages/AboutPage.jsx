@@ -42,7 +42,6 @@ function AboutPage() {
 
   return (
     <div className="container">
-      <h1 className="page-title">關於我</h1>
       {sections.map((section) => {
         const sectionClasses = ['section-card'];
         const contentContainerClasses = ['content']; // Renamed for clarity

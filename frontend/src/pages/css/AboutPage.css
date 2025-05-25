@@ -3,7 +3,7 @@
 /* --- 共用元素 --- */
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 20px;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .section-card {
-  background-color: rgba(14, 23, 42, 0.85);
+  background-color: #1e1e1e;
   border: 1px solid #36334f;
   border-radius: 8px;
   padding: 20px;
@@ -27,9 +27,9 @@
 }
 
 .section-title {
-  color: #62aae2; /* Darker blue for section titles */
-  font-size: 2em;
-  text-align: center;
+  color: #ffffff; /* Darker blue for section titles */
+  font-size: 1.5em;
+  text-align: left;
   margin-top: 0;
   border-bottom: 1px solid #36334f;
   padding-bottom: 15px;
@@ -60,6 +60,11 @@
 /* --- 共用元素 --- */
 
 /* --- 個別元素 --- */
+.content em{
+  color: #d4de1c;
+  font-weight: bold;
+}
+
 .skills-content {
   display: flex;
   flex-direction: column;
