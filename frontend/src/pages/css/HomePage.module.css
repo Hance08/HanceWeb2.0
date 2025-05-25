@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; 
 }
 
 .rightContainer {
@@ -190,14 +191,26 @@
   overflow-y: auto; /* Add scroll if content exceeds height */
 }
 
-.terminalCursor {
-  display: inline-block;
-  background-color: #00ff00; /* Cursor color */
-  width: 8px; /* Cursor width */
-  height: 1.1em; /* Cursor height, relative to font size */
-  animation: blinkCursor 1s infinite steps(1, end);
-  margin-left: 2px;
-  vertical-align: baseline;
+.terminalInputArea {
+  display: flex;
+  align-items: center;
+  margin-top: 5px; /* Space above the input line */
+}
+
+.terminalPrompt {
+  white-space: nowrap; /* Prevent prompt from wrapping */
+  margin-right: 5px;
+}
+
+.terminalInput {
+  background-color: transparent;
+  border: none;
+  color: #00ff00; /* Match terminal text color */
+  font-family: inherit; /* Inherit monospace font from .terminalContainer */
+  font-size: inherit; /* Inherit font size */
+  flex-grow: 1; /* Allow input to take remaining space */
+  outline: none; /* Remove default focus outline */
+  caret-color: #00ff00; /* Set blinking cursor color */
 }
 
 @keyframes fadeInTerminal {
@@ -208,15 +221,6 @@
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes blinkCursor {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
   }
 }
 

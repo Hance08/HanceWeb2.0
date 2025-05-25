@@ -1,47 +1,132 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './css/HomePage.module.css'; // Import CSS Modules
 import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons
 
+const getInitialBootLines = () => [
+  "Welcome, guest!",
+  "Type 'about', 'portfolio', 'help' or 'clear' then press Enter.",
+  "", 
+];
+
+const helpText = `
+Available commands:
+  about        - Learn more about me.
+  portfolio    - View my projects.
+  clear        - Clear the terminal screen.
+  help         - Show this help message.
+
+Type a command and press Enter.
+`;
+
+const INTRO_ANIMATION_SEEN_KEY = 'hasSeenIntroAnimation';
+
 function HomePage() {
-  const [showWelcomeText, setShowWelcomeText] = useState(true);
+  // Determine initial state based on sessionStorage
+  const hasSeenIntroBefore = sessionStorage.getItem(INTRO_ANIMATION_SEEN_KEY) === 'true';
+
+  const [showWelcomeText, setShowWelcomeText] = useState(!hasSeenIntroBefore);
   const [startGlitch, setStartGlitch] = useState(false);
-  const [showTerminal, setShowTerminal] = useState(false);
+  const [showTerminal, setShowTerminal] = useState(hasSeenIntroBefore);
+
+  const [terminalLines, setTerminalLines] = useState([]);
+  const [currentInput, setCurrentInput] = useState('');
+  const navigate = useNavigate();
+  const terminalOutputRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    const welcomeFadeInUpDuration = 1200; // As per .heroText animation
-    const welcomeFadeInUpDelay = 300;    // As per .heroText animation-delay
-    const displayWelcomeFor = 2000;      // How long to show the welcome message after it's fully visible
-    const glitchAnimationDuration = 800; // Duration for the glitch effect itself
+    if (hasSeenIntroBefore) {
+      // If intro has been seen, skip all welcome animations
+      setShowWelcomeText(false);
+      setStartGlitch(false); // Ensure glitch isn't accidentally triggered
+      setShowTerminal(true);
+      return; // Skip setting up timers for welcome animation
+    }
+
+    const welcomeFadeInUpDuration = 1200; 
+    const welcomeFadeInUpDelay = 300;    
+    const displayWelcomeFor = 500;      
+    const glitchAnimationDuration = 800; 
 
     const totalTimeToStartGlitch = welcomeFadeInUpDuration + welcomeFadeInUpDelay + displayWelcomeFor;
     const totalTimeToShowTerminal = totalTimeToStartGlitch + glitchAnimationDuration;
 
-    // Timer to start the glitch effect
     const glitchTimer = setTimeout(() => {
       setStartGlitch(true);
     }, totalTimeToStartGlitch);
 
-    // Timer to hide welcome message and show terminal
     const terminalTimer = setTimeout(() => {
-      setShowWelcomeText(false); // Welcome text will be hidden by its own glitch animation ending
+      setShowWelcomeText(false); 
       setShowTerminal(true);
+      sessionStorage.setItem(INTRO_ANIMATION_SEEN_KEY, 'true'); // Mark intro as seen
     }, totalTimeToShowTerminal);
 
     return () => {
       clearTimeout(glitchTimer);
       clearTimeout(terminalTimer);
-    }; // Cleanup timers on component unmount
-  }, []);
+    }; 
+  }, [hasSeenIntroBefore]); // Add hasSeenIntroBefore to dependency array
+
+  useEffect(() => {
+    if (showTerminal) {
+      // Set initial lines for terminal regardless of how it became visible
+      setTerminalLines(getInitialBootLines()); 
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }
+  }, [showTerminal]);
+
+  useEffect(() => {
+    if (terminalOutputRef.current) {
+      terminalOutputRef.current.scrollTop = terminalOutputRef.current.scrollHeight;
+    }
+  }, [terminalLines]);
+
+  const processCommand = () => {
+    const command = currentInput.trim().toLowerCase();
+    const commandLine = `guest@hance-portfolio:~$ ${currentInput}`;
+    let newOutputLines = [...terminalLines, commandLine];
+
+    if (command === 'about') {
+      newOutputLines.push("Navigating to /about...");
+      navigate('/about');
+    } else if (command === 'portfolio') {
+      newOutputLines.push("Navigating to /portfolio...");
+      navigate('/portfolio');
+    } else if (command === 'clear') {
+      setTerminalLines(getInitialBootLines());
+      setCurrentInput('');
+      return;
+    } else if (command === 'help') {
+      newOutputLines.push(helpText);
+    } else if (command === 'login') {
+      navigate('/login');
+    } else if (command === '') {
+      // No output for empty command, just new prompt effectively shown by clearing input
+    } else {
+      newOutputLines.push(`-bash: command not found: ${command}`);
+    }
+    newOutputLines.push(""); 
+    setTerminalLines(newOutputLines);
+    setCurrentInput('');
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      processCommand();
+    }
+  };
 
   return (
     <div className={styles.pageContainer}>
-
       {/* Hero Div */}
       <div className={styles.heroContainer}>
         <div className={styles.leftContainer}>
           <img
-            src="/src/assets/avatar.png" // Replace with your actual image path
+            src="/src/assets/avatar.png" 
             alt="Hance - 秦宇澔"
             className={styles.heroProfileImage}
           />
@@ -66,10 +151,22 @@ function HomePage() {
           )}
           {showTerminal && (
             <div className={styles.terminalContainer}>
-              <pre className={styles.terminalText}>
-                {`HanceOS v2.0 Initializing...\n[Kernel] Booting from /dev/sda1\n[Services] Starting portfolio_daemon... [OK]\n[Network] Interface eth0 configured. IP: 127.0.0.1\n[UI] Launching Graphical Shell...\n\nWelcome, guest!\nPortfolio loaded successfully.\n\nguest@hance-portfolio:~$ `}
-                <span className={styles.terminalCursor}></span>
+              <pre className={styles.terminalText} ref={terminalOutputRef}>
+                {terminalLines.join('\n')}
               </pre>
+              <div className={styles.terminalInputArea}>
+                <span className={styles.terminalPrompt}>guest@hance-portfolio:~$ </span>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  className={styles.terminalInput}
+                  value={currentInput}
+                  onChange={(e) => setCurrentInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  spellCheck="false"
+                  autoFocus
+                />
+              </div>
             </div>
           )}
         </div>
