@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import styles from './css/LoginPage.module.css'; // 匯入 CSS Modules
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -26,32 +27,38 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>管理員登入</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">使用者名稱:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">密碼:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">登入</button>
-      </form>
+    <div className={styles.loginPageContainer}>
+      <div className={styles.loginFormContainer}>
+        <h1 className={styles.title}>管理員登入</h1>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.formGroup}>
+            <label htmlFor="username" className={styles.label}>使用者名稱:</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="password" className={styles.label}>密碼:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className={styles.input}
+            />
+          </div>
+          {error && <p className={styles.errorMessage}>{error}</p>}
+          <button type="submit" className={styles.submitButton}>
+            登入
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
