@@ -11,11 +11,16 @@ import LoginPage from './pages/LoginPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import AboutPage from './pages/AboutPage'
 import PortfolioPage from './pages/PortfolioPage'
-import AdminAboutPage from './pages/adminPages/AdminAboutPage';
+import AdminAboutEditorPage from './pages/adminPages/AdminAboutEditorPage'; // Ensure this is imported
 import AdminDashboardPage from './pages/adminPages/AdminDashboardPage'
-import AdminPortfolioPage from './pages/adminPages/AdminPortfolioPage';
+// import AdminPortfolioPage from './pages/adminPages/AdminPortfolioPage'; // Will be replaced by PortfolioEditor under AdminDashboardPage
 import AdminAddPortfolioItemPage from './pages/adminPages/AdminAddPortfolioItemPage';
 import AdminEditPortfolioItemPage from './pages/adminPages/AdminEditPortfolioItemPage';
+
+// New Admin Sub-Page Components
+import AdminOverview from './pages/adminPages/AdminOverview';
+import AdminPortfolioEditor from './pages/adminPages/AdminPortfolioEditor';
+
 import AnimatedShapesBackground from './components/AnimatedShapesBackground';
 
 import './App.css'
@@ -34,13 +39,6 @@ const NavigationBar = () => {
           {isAuthenticated ? (
             <>
               <Link to="/admin" className="navLink">管理後台</Link>
-              <span className="navUserGreeting">你好, {currentUser?.username || '管理員'}! </span> {/* Changed from styles.navUserGreeting */}
-              <button 
-                onClick={logout} 
-                className={`ctaButton ctaButtonDanger navButton`} // Changed from styles and combined classes
-              >
-                登出
-              </button>
             </>
           ) : ""
           }
@@ -64,24 +62,22 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
 
-          <Route path="/admin" element={
-            <ProtectedRoute>
-              <AdminDashboardPage />
-            </ProtectedRoute>
-          } />
+          {/* Admin Routes - AdminDashboardPage as layout for nested routes */}
+          <Route 
+            path="/admin" 
+            element={ <ProtectedRoute><AdminDashboardPage /></ProtectedRoute> }
+          >
+            <Route index element={<AdminOverview />} /> {/* Default for /admin */}
+            <Route path="about" element={<AdminAboutEditorPage />} /> {/* Changed to AdminAboutPage */}
+            <Route path="portfolio" element={<AdminPortfolioEditor />} />
+            {/* 
+              The following routes for portfolio item management might also be nested 
+              under /admin/portfolio in the future, or kept separate if their layout differs.
+              For now, they are kept as is for minimal disruption.
+            */}
+          </Route>
 
-          <Route path="/admin/about" element={
-            <ProtectedRoute>
-              <AdminAboutPage />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/admin/portfolio" element={
-            <ProtectedRoute>
-              <AdminPortfolioPage />
-            </ProtectedRoute>
-          } />
-
+          {/* Kept for now, consider nesting under /admin/portfolio or a dedicated portfolio management layout */}
           <Route path="/admin/portfolio/new" element={
             <ProtectedRoute>
               <AdminAddPortfolioItemPage />
@@ -93,6 +89,21 @@ function App() {
               <AdminEditPortfolioItemPage />
             </ProtectedRoute>
           } />
+
+          {/* Old admin routes - to be removed as they are now nested */}
+          {/* 
+          <Route path="/admin/about" element={
+            <ProtectedRoute>
+              <AdminAboutPage /> // This was the old, non-nested route
+            </ProtectedRoute>
+          } />
+
+          <Route path="/admin/portfolio" element={
+            <ProtectedRoute>
+              <AdminPortfolioPage />
+            </ProtectedRoute>
+          } />
+          */}
         </Routes>
       </Router>
     </AuthProvider>
