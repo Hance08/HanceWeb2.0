@@ -3,6 +3,7 @@ import { aboutService } from '../../services/aboutService';
 import { Link } from 'react-router-dom';
 import SectionEditor from '../../components/admin/about/SectionEditor';
 import SkillsEditor from '../../components/admin/about/SkillsEditor';
+import styles from './css/AdminAboutEditorPage.module.css'; // Import CSS Modules
 
 const sectionFriendlyNames = {
   introduction: '簡介',
@@ -12,7 +13,7 @@ const sectionFriendlyNames = {
   contact: '聯絡方式',
 };
 
-function AdminAboutPage() {
+function AdminAboutEditorPage() {
   const [sections, setSections] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -199,11 +200,16 @@ function AdminAboutPage() {
   };
 
   if (loading) {
-    return <div>載入中...</div>;
+    return <div className={styles.loadingMessage}>載入中...</div>;
   }
 
   if (error) {
-    return <div style={{ color: 'red' }}>錯誤: {error} <button onClick={fetchSections}>重試</button></div>;
+    return (
+      <div className={styles.errorMessageContainer}>
+        錯誤: {error} 
+        <button onClick={fetchSections} className={styles.retryButton}>重試</button>
+      </div>
+    );
   }
 
   const allPossibleSectionNames = Object.keys(sectionFriendlyNames);
@@ -218,51 +224,52 @@ function AdminAboutPage() {
   });
 
   return (
-    <div>
-      <nav style={{ marginBottom: '20px' }}>
-        <Link to="/admin">返回管理後台</Link>
-      </nav>
-      <h1>編輯「關於我」內容</h1>
+    <div className={styles.pageContainer}>
+      {/* This nav might be redundant if AdminDashboardPage handles navigation */}
+      {/* <nav className={styles.adminNav}>
+        <Link to="/admin" className={styles.adminNavLink}>返回管理後台總覽</Link>
+      </nav> */}
+      <h1 className={styles.pageTitle}>編輯「關於我」內容</h1>
       {allPossibleSectionNames.map((sectionName) => {
         const sectionAPIData = sections[sectionName]; 
         const currentEditState = editStates[sectionName];
-        // Fallback for editState if somehow not initialized, though the forEach above should handle it
         const safeEditState = currentEditState || 
                               (sectionName === 'skills' ? 
                                { title: '', content: [], saving: false, saveError: null } : 
                                { title: '', content: '', isMarkdown: false, saving: false, saveError: null });
         
-        if (sectionName === 'skills') {
-          return (
-            <SkillsEditor
-              key={sectionName}
-              sectionName={sectionName}
-              sectionFriendlyName={sectionFriendlyNames[sectionName]}
-              editState={safeEditState}
-              onInputChange={handleInputChange}
-              onSkillChange={handleSkillChange}
-              onAddSkill={addSkill}
-              onRemoveSkill={removeSkill}
-              onSubmit={handleSubmit}
-              sectionData={sectionAPIData}
-            />
-          );
-        } else {
-          return (
-            <SectionEditor
-              key={sectionName}
-              sectionName={sectionName}
-              sectionFriendlyName={sectionFriendlyNames[sectionName]}
-              editState={safeEditState}
-              onInputChange={handleInputChange}
-              onSubmit={handleSubmit}
-              sectionData={sectionAPIData}
-            />
-          );
-        }
+        const editorProps = {
+          key: sectionName,
+          sectionName: sectionName,
+          sectionFriendlyName: sectionFriendlyNames[sectionName] || sectionName,
+          editState: safeEditState,
+          onInputChange: handleInputChange,
+          onSubmit: handleSubmit,
+          sectionData: sectionAPIData,
+          // Pass a common className for card styling if needed by child components
+          // or let child components handle their own root styling.
+          // For now, wrapping them in a styled div here.
+        };
+
+        return (
+          <div key={sectionName} className={styles.sectionCard}>
+            {sectionName === 'skills' ? (
+              <SkillsEditor
+                {...editorProps}
+                onSkillChange={handleSkillChange}
+                onAddSkill={addSkill}
+                onRemoveSkill={removeSkill}
+              />
+            ) : (
+              <SectionEditor
+                {...editorProps}
+              />
+            )}
+          </div>
+        );
       })}
     </div>
   );
 }
 
-export default AdminAboutPage; 
+export default AdminAboutEditorPage; 

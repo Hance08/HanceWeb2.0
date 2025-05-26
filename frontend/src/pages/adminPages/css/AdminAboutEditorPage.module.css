@@ -1,0 +1,97 @@
+.pageContainer {
+  padding: 20px;
+}
+
+.pageTitle {
+  font-size: 2em;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sectionCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+/* Default textarea styling (if any SectionEditor renders a textarea without a specific ID) */
+.sectionCard textarea {
+  min-height: 300px; /* A more moderate default height */
+  width: 100%;      
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;   
+  line-height: 1.5;
+  box-sizing: border-box; 
+}
+
+/* General styling for input fields within a sectionCard if needed for SkillsEditor */
+.sectionCard input[type="text"],
+.sectionCard input[type="number"],
+.sectionCard select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.95em;
+}
+
+.loadingMessage,
+.errorMessageContainer {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.1em;
+  border-radius: 6px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.loadingMessage {
+  color: #555;
+}
+
+.errorMessageContainer {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.retryButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-left: 15px;
+  transition: background-color 0.2s;
+}
+
+.retryButton:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the old NavLink - might not be needed if AdminDashboardPage handles all nav */
+.adminNav {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.adminNavLink {
+  text-decoration: none;
+  color: #007bff;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.adminNavLink:hover {
+  background-color: #e9ecef;
+  color: #0056b3;
+} 
