@@ -99,60 +99,6 @@
   animation-delay: 0.3s; /* Optional: small delay before animation starts */
 }
 
-/* General CTA Button Style */
-.ctaButton {
-  display: inline-block;
-  padding: 12px 28px; /* Increased padding */
-  text-decoration: none;
-  border-radius: 25px; /* More rounded */
-  font-size: 1em;
-  font-weight: 500;
-  margin: 10px 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-  border: 2px solid transparent;
-}
-
-/* CTA Button for light backgrounds (default) */
-.ctaButtonPrimary {
-  background-color: #0d1424; /* Midnight blue */
-  color: white;
-  border-color: #ffffff;
-}
-
-.ctaButtonPrimary:hover {
-  background-color: #1c2f50; /* Slightly lighter midnight blue */
-  border-color: #ffffff;
-  transform: translateY(-2px);
-}
-
-/* CTA Button for dark backgrounds (e.g., Hero Section) */
-.ctaButtonOutline {
-  background-color: transparent;
-  color: #f0f0f0; /* Light text */
-  border: 2px solid #f0f0f0; /* Light border */
-}
-
-.ctaButtonOutline:hover {
-  background-color: rgba(240, 240, 240, 0.1); /* Subtle light background on hover */
-  color: #ffffff;
-  border-color: #ffffff;
-  transform: translateY(-2px);
-}
-
-/* CTA Button for danger/warning actions */
-.ctaButtonDanger {
-  background-color: #dc3545; /* Red for danger */
-  color: white;
-  border-color: #dc3545;
-}
-
-.ctaButtonDanger:hover {
-  background-color: #c82333; /* Darker red on hover */
-  border-color: #bd2130;
-  transform: translateY(-2px);
-}
-
 /* Add this at the end of the file or with other keyframes */
 @keyframes fadeInUp {
   from {
