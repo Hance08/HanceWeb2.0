@@ -10,11 +10,11 @@
 .heroContainer {
   display: flex;
   flex-direction: row;
-  gap: 150px;
+  gap: 250px;
   box-sizing: border-box;
   color: #f0f0f0;
   line-height: 1.7;
-  padding: 0 30px 80px 150px;
+  padding: 0 30px 80px 190px;
 }
 
 .leftContainer {
@@ -168,7 +168,8 @@
 /* Terminal Styles */
 .terminalContainer {
   width: 100%; /* Or a specific width like 600px */
-  max-width: 700px;
+  min-width: 500px;
+  max-width: 800px;
   text-align: left;
   background-color: #1e1e1e; /* Dark background for terminal */
   color: #00ff00; /* Bright green text */
