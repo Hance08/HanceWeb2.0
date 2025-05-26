@@ -1,9 +1,9 @@
-/* frontend/src/pages/AboutPage.css */
+/* frontend/src/pages/css/AboutPage.css */
 
 /* --- 共用元素 --- */
 .container {
   max-width: 800px;
-  margin: 100px auto;
+  margin: 100px 20px 20px 20px;
   padding: 20px;
 }
 
@@ -59,7 +59,73 @@
 }
 /* --- 共用元素 --- */
 
-/* --- 個別元素 --- */
+/* --- Layout for About Page with Sidebar --- */
+.about-page-layout {
+  display: flex;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 120px auto 20px 20px; /* Top margin for navbar, auto for horizontal centering */
+  gap: 30px; /* Space between sidebar and main content */
+}
+
+.sidebar-nav {
+  width: 220px; /* Fixed width for the sidebar */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  position: sticky; /* Make sidebar sticky */
+  top: 120px; /* Start stickiness below the main navbar, adjust if needed */
+  height: calc(100vh - 140px); /* Adjust height considering top offset and some bottom padding */
+  overflow-y: auto; /* Allow scrolling within sidebar if content overflows */
+  padding-right: 15px; /* Add some padding to avoid scrollbar overlapping content */
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 10px 15px;
+  color: #c5c5c5; /* Lighter color for inactive links */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight: 500;
+  border-left: 3px solid transparent; /* For active indicator */
+  cursor: pointer;
+}
+
+.sidebar-nav li a:hover {
+  color: #ffffff;
+}
+
+.sidebar-nav li.active a {
+  color: #62aae2; /* Highlight color for active link text */
+  background-color: #1f2937; /* Background for active link */
+  font-weight: bold;
+}
+
+.main-content {
+  flex-grow: 1; /* Allow main content to take remaining space */
+  /* The .container class styling (max-width, margin, padding) is now handled by .about-page-layout and specific content/sidebar styles */
+  /* So, we remove the margin and padding from .section-card if it was previously centered by .container */
+}
+
+/* Adjust .section-card if it had its own centering margins previously */
+.section-card {
+  background-color: #1e1e1e;
+  border: 1px solid #36334f;
+  border-radius: 8px;
+  padding: 25px; /* Increased padding a bit */
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.2);
+  font-size: 1.1em; 
+  color: #e0e0e0;
+  text-align: justify; 
+  /* Removed margin: auto; if present, as layout is now controlled by flex */
+}
+
+/* --- skills section --- */
 .content em{
   color: #d4de1c;
   font-weight: bold;
@@ -85,10 +151,97 @@
 
 .skill-icon {
   font-size: 2em;
-  color: #1367ed;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
+  margin-left: 10px; 
 }
 
-/* --- 個別元素 --- */
+/* --- Brand Icon Colors --- */
+.skill-icon.fa-flutter { /* Targeting Flutter icon specifically within skill items */
+  color: #02569B; /* Flutter's primary blue */
+}
+
+.skill-icon.fa-python { /* Targeting Python icon */
+  color: #3776AB; /* Python's blue */
+}
+
+.skill-icon.fa-js { /* Example for JavaScript (often yellow) */
+  color: #F7DF1E;
+}
+
+.skill-icon.fa-java { /* Targeting Java icon */
+  color: #007396; /* Java's blue */
+}
+/* --- skills section --- */
+
+/* --- education section --- */
+.education-content {
+  position: relative; /* For positioning the timeline pseudo-element */
+  padding-left: 30px; /* Space for the timeline line and dots */
+}
+
+/* The timeline vertical line */
+.education-content::before {
+  content: '';
+  position: absolute;
+  left: 22.8px; /* Adjust to center the line relative to the dots */
+  top: 15px;   /* Start below the first title a bit */
+  bottom: 15px; /* End above the last item a bit */
+  width: 2px;
+  background-color: #4a5a70; /* Timeline color */
+}
+
+.education-content h2, 
+.education-content h3, 
+.education-content p {
+  position: relative; /* Needed for dot positioning if we attach dots to these */
+  margin-left: 10px; /* Indent content to the right of the timeline dots */
+}
+
+/* Styling for the institution name */
+.education-content h2 {
+  font-size: 1.4em;
+  color: #a5c9ff; /* Light blue for institution */
+  margin-top: 25px; /* Space between education entries */
+  margin-bottom: 5px;
+  padding-left: 25px; /* Space for the dot */
+}
+
+/* Add a dot before each H2 (institution) */
+.education-content h2::before {
+  content: '';
+  position: absolute;
+  left: -24px; /* Position dot on the timeline (padding-left of .education-content + half of dot width approx) */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: #62aae2; /* Dot color */
+  border-radius: 50%;
+  border: 2px solid #1e1e1e; /* Match section card background for a 'cutout' effect */
+  z-index: 1;
+}
+
+.education-content h2:first-of-type {
+  margin-top: 0; /* No top margin for the very first institution */
+}
+
+/* Styling for the department/major */
+.education-content h3 {
+  font-size: 1.1em;
+  color: #e0e0e0; /* White-ish for department */
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 4px;
+  padding-left: 25px;
+}
+
+/* Styling for the period */
+.education-content p {
+  font-size: 0.95em;
+  color: #8b949e; /* Grey for period */
+  margin-top: 0;
+  margin-bottom: 20px; /* Space after the period, before next institution */
+  padding-left: 25px;
+}
+/* --- education section --- */
