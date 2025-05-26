@@ -55,6 +55,7 @@ function App() {
 
   return (
     <AuthProvider>
+      {/* <AnimatedShapesBackground /> */}
       <Router>
         <NavigationBar /> {/* Added NavigationBar here */}
         <Routes>
