@@ -125,7 +125,7 @@ function AdminPortfolioItemForm({ initialData, onSubmit, isSaving, error }) {
       <div>
         <label htmlFor="imageUrl" style={labelStyle}>圖片 URL:</label>
         <input
-          type="url"
+          type="text"
           id="imageUrl"
           name="imageUrl"
           value={formData.imageUrl}
