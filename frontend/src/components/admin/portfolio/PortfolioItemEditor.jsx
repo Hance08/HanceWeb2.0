@@ -38,7 +38,7 @@ const buttonStyle = {
   marginTop: '10px',
 };
 
-function AdminPortfolioItemForm({ initialData, onSubmit, isSaving, error }) {
+function PortfolioItemEditor({ initialData, onSubmit, isSaving, error }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -186,4 +186,4 @@ function AdminPortfolioItemForm({ initialData, onSubmit, isSaving, error }) {
   );
 }
 
-export default AdminPortfolioItemForm; 
+export default PortfolioItemEditor; 

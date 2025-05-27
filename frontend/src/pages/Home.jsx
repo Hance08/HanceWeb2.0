@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './css/Home.module.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import Terminal from '../components/Terminal'; 
+import Terminal from '../components/public/home/Terminal'; 
 
 const INTRO_ANIMATION_SEEN_KEY = 'hasSeenIntroAnimation';
 

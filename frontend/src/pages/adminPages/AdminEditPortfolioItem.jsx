@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { portfolioService } from '../../services/portfolioService';
-import AdminPortfolioItemForm from '../../components/admin/portfolio/AdminPortfolioItemForm';
+import PortfolioItemEditor from '../../components/admin/portfolio/PortfolioItemEditor';
 
 function AdminEditPortfolioItem() {
   const { itemId } = useParams();
@@ -78,7 +78,7 @@ function AdminEditPortfolioItem() {
         <button onClick={() => navigate('/admin/portfolio')} style={{ marginRight: '10px' }}>返回作品集管理</button>
       </nav>
       <h1>編輯作品集項目</h1>
-      <AdminPortfolioItemForm 
+      <PortfolioItemEditor 
         initialData={initialData} 
         onSubmit={handleSubmit} 
         isSaving={isSaving} 

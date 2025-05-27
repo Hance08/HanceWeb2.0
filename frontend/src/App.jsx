@@ -20,7 +20,7 @@ import AdminEditPortfolioItem from './pages/adminPages/AdminEditPortfolioItem';
 import AdminOverview from './pages/adminPages/AdminOverview';
 import AdminPortfolioEditor from './pages/adminPages/AdminPortfolioEditor';
 
-// import AnimatedShapesBackground from './components/AnimatedShapesBackground';
+// import AnimatedShapesBackground from './components/animation/AnimatedShapesBackground';
 
 import './App.css'
 
