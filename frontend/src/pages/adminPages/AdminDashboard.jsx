@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, Outlet, NavLink } from 'react-router-dom'; // Import Outlet and NavLink
-import styles from './css/AdminDashboardPage.module.css'; // 匯入 CSS Modules
+import styles from './css/AdminDashboard.module.css'; // 匯入 CSS Modules
 
-function AdminDashboardPage() {
+function AdminDashboard() {
   const { currentUser, logout } = useAuth();
 
   // Helper to apply active style for NavLink
@@ -34,4 +34,4 @@ function AdminDashboardPage() {
   );
 }
 
-export default AdminDashboardPage; 
+export default AdminDashboard; 

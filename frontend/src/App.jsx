@@ -2,26 +2,25 @@ import React, { useCallback } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-library.add(fas, fab)
+  import { fas } from '@fortawesome/free-solid-svg-icons'
+  import { fab } from '@fortawesome/free-brands-svg-icons'
+  library.add(fas, fab)
 
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
+import Home from './pages/Home'
+import Login from './pages/Login'
 import ProtectedRoute from './components/ProtectedRoute'
-import AboutPage from './pages/AboutPage'
-import PortfolioPage from './pages/PortfolioPage'
-import AdminAboutEditorPage from './pages/adminPages/AdminAboutEditorPage'; // Ensure this is imported
-import AdminDashboardPage from './pages/adminPages/AdminDashboardPage'
-// import AdminPortfolioPage from './pages/adminPages/AdminPortfolioPage'; // Will be replaced by PortfolioEditor under AdminDashboardPage
-import AdminAddPortfolioItemPage from './pages/adminPages/AdminAddPortfolioItemPage';
-import AdminEditPortfolioItemPage from './pages/adminPages/AdminEditPortfolioItemPage';
+import About from './pages/About'
+import Portfolio from './pages/Portfolio'
+import AdminAboutEditor from './pages/adminPages/AdminAboutEditor'; // Ensure this is imported
+import AdminDashboard from './pages/adminPages/AdminDashboard'
+import AdminAddPortfolioItem from './pages/adminPages/AdminAddPortfolioItem';
+import AdminEditPortfolioItem from './pages/adminPages/AdminEditPortfolioItem';
 
 // New Admin Sub-Page Components
 import AdminOverview from './pages/adminPages/AdminOverview';
 import AdminPortfolioEditor from './pages/adminPages/AdminPortfolioEditor';
 
-import AnimatedShapesBackground from './components/AnimatedShapesBackground';
+// import AnimatedShapesBackground from './components/AnimatedShapesBackground';
 
 import './App.css'
 
@@ -57,18 +56,18 @@ function App() {
       <Router>
         <NavigationBar /> {/* Added NavigationBar here */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
 
           {/* Admin Routes - AdminDashboardPage as layout for nested routes */}
           <Route 
             path="/admin" 
-            element={ <ProtectedRoute><AdminDashboardPage /></ProtectedRoute> }
+            element={ <ProtectedRoute><AdminDashboard /></ProtectedRoute> }
           >
             <Route index element={<AdminOverview />} /> {/* Default for /admin */}
-            <Route path="about" element={<AdminAboutEditorPage />} /> {/* Changed to AdminAboutPage */}
+            <Route path="about" element={<AdminAboutEditor />} /> {/* Changed to AdminAboutPage */}
             <Route path="portfolio" element={<AdminPortfolioEditor />} />
             {/* 
               The following routes for portfolio item management might also be nested 
@@ -80,13 +79,13 @@ function App() {
           {/* Kept for now, consider nesting under /admin/portfolio or a dedicated portfolio management layout */}
           <Route path="/admin/portfolio/new" element={
             <ProtectedRoute>
-              <AdminAddPortfolioItemPage />
+              <AdminAddPortfolioItem />
             </ProtectedRoute>
           } />
 
           <Route path="/admin/portfolio/edit/:itemId" element={
             <ProtectedRoute>
-              <AdminEditPortfolioItemPage />
+              <AdminEditPortfolioItem />
             </ProtectedRoute>
           } />
 

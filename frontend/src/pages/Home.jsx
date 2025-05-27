@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './css/HomePage.module.css'; // Import CSS Modules
-import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons
-import Terminal from '../components/Terminal'; // Import the new Terminal component
+import styles from './css/Home.module.css';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Terminal from '../components/Terminal'; 
 
 const INTRO_ANIMATION_SEEN_KEY = 'hasSeenIntroAnimation';
 
-function HomePage() {
-  // Determine initial state based on sessionStorage
+function Home() {
   const hasSeenIntroBefore = sessionStorage.getItem(INTRO_ANIMATION_SEEN_KEY) === 'true';
 
   const [showWelcomeText, setShowWelcomeText] = useState(!hasSeenIntroBefore);
@@ -87,4 +86,4 @@ function HomePage() {
   );
 }
 
-export default HomePage; 
+export default Home; 

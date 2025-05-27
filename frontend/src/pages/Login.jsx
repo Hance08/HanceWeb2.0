@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import styles from './css/LoginPage.module.css'; // 匯入 CSS Modules
+import styles from './css/Login.module.css';
 
-function LoginPage() {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -63,4 +63,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage; 
+export default Login; 

@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { portfolioService } from '../../services/portfolioService';
 import AdminPortfolioItemForm from '../../components/admin/portfolio/AdminPortfolioItemForm';
 
-function AdminEditPortfolioItemPage() {
+function AdminEditPortfolioItem() {
   const { itemId } = useParams();
   const navigate = useNavigate();
   const [initialData, setInitialData] = useState(null);
@@ -88,4 +88,4 @@ function AdminEditPortfolioItemPage() {
   );
 }
 
-export default AdminEditPortfolioItemPage; 
+export default AdminEditPortfolioItem; 

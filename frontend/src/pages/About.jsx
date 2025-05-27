@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { aboutService } from '../services/aboutService';
-import './css/AboutPage.css'; // Import the CSS file
+import './css/About.module.css';
 
-function AboutPage() {
+function About() {
   const [sections, setSections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -176,4 +176,4 @@ function AboutPage() {
   );
 }
 
-export default AboutPage; 
+export default About; 

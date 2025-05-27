@@ -3,7 +3,7 @@ import { aboutService } from '../../services/aboutService';
 import { Link } from 'react-router-dom';
 import SectionEditor from '../../components/admin/about/SectionEditor';
 import SkillsEditor from '../../components/admin/about/SkillsEditor';
-import styles from './css/AdminAboutEditorPage.module.css'; // Import CSS Modules
+import styles from './css/AdminAboutEditor.module.css'; // Import CSS Modules
 
 const sectionFriendlyNames = {
   introduction: '簡介',
@@ -13,7 +13,7 @@ const sectionFriendlyNames = {
   contact: '聯絡方式',
 };
 
-function AdminAboutEditorPage() {
+function AdminAboutEditor() {
   const [sections, setSections] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -272,4 +272,4 @@ function AdminAboutEditorPage() {
   );
 }
 
-export default AdminAboutEditorPage; 
+export default AdminAboutEditor; 

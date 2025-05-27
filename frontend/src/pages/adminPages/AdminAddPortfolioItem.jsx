@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { portfolioService } from '../../services/portfolioService';
 import AdminPortfolioItemForm from '../../components/admin/portfolio/AdminPortfolioItemForm';
 
-function AdminAddPortfolioItemPage() {
+function AdminAddPortfolioItem() {
   const navigate = useNavigate();
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
@@ -50,4 +50,4 @@ function AdminAddPortfolioItemPage() {
   );
 }
 
-export default AdminAddPortfolioItemPage; 
+export default AdminAddPortfolioItem; 

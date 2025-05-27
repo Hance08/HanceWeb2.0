@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { portfolioService } from '../services/portfolioService';
 import { Link } from 'react-router-dom';
-import styles from './css/PortfolioPage.module.css'; // 引入 CSS 模組
+import styles from './css/Portfolio.module.css'; // 引入 CSS 模組
 
-function PortfolioPage() {
+function Portfolio() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -74,4 +74,4 @@ function PortfolioPage() {
   );
 }
 
-export default PortfolioPage; 
+export default Portfolio; 
