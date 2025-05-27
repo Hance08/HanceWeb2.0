@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { portfolioService } from '../services/portfolioService';
-import { Link } from 'react-router-dom';
-import styles from './css/Portfolio.module.css'; // 引入 CSS 模組
+import React, { useState, useEffect } from "react";
+import { portfolioService } from "../services/portfolioService";
+import styles from "./css/Portfolio.module.css";
 
 function Portfolio() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
         setLoading(true);
-        setError('');
+        setError("");
         const data = await portfolioService.getPortfolioItems();
         setItems(data);
       } catch (err) {
-        setError(err.message || '無法載入作品集內容。');
+        setError(err.message || "無法載入作品集內容。");
         console.error(err);
       } finally {
         setLoading(false);
@@ -43,7 +42,11 @@ function Portfolio() {
           {items.map((item) => (
             <div key={item._id} className={styles.portfolioItem}>
               {item.imageUrl && (
-                <img src={item.imageUrl} alt={item.title} className={styles.portfolioImage} />
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className={styles.portfolioImage}
+                />
               )}
               <div className={styles.itemTextContent}>
                 <h3>{item.title}</h3>
@@ -51,16 +54,34 @@ function Portfolio() {
                 {item.tags && item.tags.length > 0 && (
                   <div>
                     {item.tags.map((tag, index) => (
-                      <span key={index} className={styles.tag}>{tag}</span>
+                      <span key={index} className={styles.tag}>
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 )}
                 <div className={styles.actionLinks}>
                   {item.projectUrl && (
-                    <p><a href={item.projectUrl} target="_blank" rel="noopener noreferrer">查看專案詳情</a></p>
+                    <p>
+                      <a
+                        href={item.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        查看專案詳情
+                      </a>
+                    </p>
                   )}
                   {item.repositoryUrl && (
-                    <p><a href={item.repositoryUrl} target="_blank" rel="noopener noreferrer">查看原始碼</a></p>
+                    <p>
+                      <a
+                        href={item.repositoryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        查看原始碼
+                      </a>
+                    </p>
                   )}
                 </div>
                 {/* Optional: Link to a detailed page for each item */}
@@ -74,4 +95,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio; 
+export default Portfolio;

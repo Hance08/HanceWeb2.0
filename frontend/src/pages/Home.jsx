@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import styles from './css/Home.module.css';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import Terminal from '../components/public/home/Terminal'; 
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import styles from "./css/Home.module.css";
+import Terminal from "../components/public/home/Terminal";
 
-const INTRO_ANIMATION_SEEN_KEY = 'hasSeenIntroAnimation';
+const INTRO_ANIMATION_SEEN_KEY = "hasSeenIntroAnimation";
 
 function Home() {
-  const hasSeenIntroBefore = sessionStorage.getItem(INTRO_ANIMATION_SEEN_KEY) === 'true';
+  const hasSeenIntroBefore =
+    sessionStorage.getItem(INTRO_ANIMATION_SEEN_KEY) === "true";
 
   const [showWelcomeText, setShowWelcomeText] = useState(!hasSeenIntroBefore);
   const [startGlitch, setStartGlitch] = useState(false);
@@ -29,8 +30,10 @@ function Home() {
     const displayWelcomeFor = 500;
     const glitchAnimationDuration = 800;
 
-    const totalTimeToStartGlitch = welcomeFadeInUpDuration + welcomeFadeInUpDelay + displayWelcomeFor;
-    const totalTimeToShowTerminal = totalTimeToStartGlitch + glitchAnimationDuration;
+    const totalTimeToStartGlitch =
+      welcomeFadeInUpDuration + welcomeFadeInUpDelay + displayWelcomeFor;
+    const totalTimeToShowTerminal =
+      totalTimeToStartGlitch + glitchAnimationDuration;
 
     const glitchTimer = setTimeout(() => {
       setStartGlitch(true);
@@ -39,7 +42,7 @@ function Home() {
     const terminalTimer = setTimeout(() => {
       setShowWelcomeText(false);
       setShowTerminal(true);
-      sessionStorage.setItem(INTRO_ANIMATION_SEEN_KEY, 'true'); // Mark intro as seen
+      sessionStorage.setItem(INTRO_ANIMATION_SEEN_KEY, "true"); // Mark intro as seen
     }, totalTimeToShowTerminal);
 
     return () => {
@@ -60,10 +63,20 @@ function Home() {
           />
           <h1 className={styles.heroTitle}>Hance 秦宇澔</h1>
           <div className={styles.socialLinksContainer}>
-            <a href="https://github.com/Hance08" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+            <a
+              href="https://github.com/Hance08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+            >
               <FaGithub />
             </a>
-            <a href="https://www.linkedin.com/in/hance-%E7%A7%A6-00600b362/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+            <a
+              href="https://www.linkedin.com/in/hance-%E7%A7%A6-00600b362/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+            >
               <FaLinkedin />
             </a>
           </div>
@@ -71,19 +84,19 @@ function Home() {
         <div className={styles.rightContainer}>
           {showWelcomeText && (
             <p
-              className={`${styles.heroText} ${startGlitch ? styles.glitchActive : ''}`}
+              className={`${styles.heroText} ${
+                startGlitch ? styles.glitchActive : ""
+              }`}
               data-text="歡迎來到我的個人網站～"
             >
               歡迎來到我的個人網站～
             </p>
           )}
-          {showTerminal && (
-            <Terminal styles={styles} navigate={navigate} />
-          )}
+          {showTerminal && <Terminal styles={styles} navigate={navigate} />}
         </div>
       </div>
     </div>
   );
 }
 
-export default Home; 
+export default Home;
