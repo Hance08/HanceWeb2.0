@@ -1,246 +1,201 @@
-/* HomePage.module.css */
+/* Home.module.css */
 
+/* General Page Styles */
 .pageContainer {
-  background-color: transparent;
-  min-height: 50vh;
-  max-height: 80vh;
-  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
 }
 
-.heroContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 250px;
+/* Container to manage viewport height and content alignment */
+.subWhiteContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: #F8F9FA;
+  padding-left: 5%;
+  padding-right: 5%;
   box-sizing: border-box;
-  color: #f0f0f0;
-  line-height: 1.7;
-  padding: 0 30px 80px 190px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.leftContainer {
+.subBlackContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: #212529;
+  color: #F8F9FA;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: flex-start;
 }
 
-.rightContainer {
+/* Common styles for the main content blocks within each section */
+.heroMainContent, .aboutMePreview, .portfolioPreviewWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  text-align: left;       
+}
+
+.heroMainContent {
+  padding: 20px 0;
+  animation: subtleFadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  max-width: 750px;
+}
+
+.mainGreeting {
+  font-size: 6em; 
+  line-height: 0.5; 
+  margin-bottom: 15px; 
+  font-weight: 300; 
+  color: #333333;
+}
+
+.greetingName {
+  font-weight: 700; 
+  color: #FFA726; 
+}
+
+.welcomeSubtitle {
+  font-size: 2.5em; 
+  color: #555555;
+  margin-bottom: 40px; 
+  font-weight: 400;
 }
 
 .socialLinksContainer {
   display: flex;
-  justify-content: center; /* Center links horizontally */
-  gap: 20px; /* Space between social links */
-  margin-top: 20px; /* Space above the social links */
+  justify-content: flex-start; 
+  gap: 25px;
 }
 
 .socialLink {
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between icon and text */
-  color: #f0f0f0; /* Light color for links */
+  color: #555555;
   text-decoration: none;
-  font-size: 1.5em;
-  transition: color 0.2s ease;
+  font-size: 2em; 
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .socialLink:hover {
-  color: #acb5c5; /* Lighter color on hover */
+  color: #FFA726;
+  transform: translateY(-2px);
 }
 
-/* Placeholder for icon styling - replace span with actual icon component/SVG later */
-.socialLink span {
-  font-family: 'Font Awesome 5 Brands'; 
-  content: '\f09b';
-  display: inline-block; 
-  width: 24px;
-  height: 24px;
-  padding: 5px;
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 4px;
-  font-size: 0.8em;
-}
-
-.heroProfileImage {
-  width: 150px; /* Adjust size as needed */
-  height: 150px; /* Adjust size as needed */
-  border-radius: 50%; /* Makes the image circular */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  margin-bottom: 20px; /* Space below the image */
-  border: 3px solid #f0f0f0; /* Optional: adds a light border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow */
-}
-
-.heroTitle {
-  font-size: 2.1em; /* Slightly larger for full screen hero */
-  color: #ffffff; /* Pure white for title */
-  line-height: 0.1;
-  text-shadow:
-    0 0 10px #fff,
-    0 0 20px #0077ff,
-    0 0 10px #0077ff,
-    0 0 5px #0077ff,
-    0 0 12px #0077ff;  
-}
-
-.heroText {
-  font-size: 2.5em;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #e0e0e0;
-  line-height: 1.7;
-  padding: 0 20px; /* Add horizontal padding here if needed for text on smaller screens */
-  opacity: 0; /* Initially hidden for animation */
-  animation: fadeInUp 1.2s ease-out forwards;
-  animation-delay: 0.3s; /* Optional: small delay before animation starts */
-}
-
-/* Add this at the end of the file or with other keyframes */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Terminal Styles */
-.terminalContainer {
-  width: 100%; /* Or a specific width like 600px */
-  min-width: 500px;
-  max-width: 800px;
-  text-align: left;
-  background-color: #1e1e1e; /* Dark background for terminal */
-  color: #00ff00; /* Bright green text */
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+/* Styles for the About Me preview in the black section */
+.aboutMePreview {
+  max-width: 600px;
   opacity: 0;
-  animation: fadeInTerminal 0.8s ease-out forwards;
-  /* Ensure this animation starts after the welcome message would have disappeared */
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.terminalText {
-  white-space: pre-wrap; /* Preserve whitespace and newlines */
-  word-wrap: break-word; /* Break long words if necessary */
-  margin: 0;
-  font-size: 0.9em;
-  line-height: 1.5;
-  height: 250px; /* Adjust as needed, or use min-height */
-  overflow-y: auto; /* Add scroll if content exceeds height */
+.aboutMePreview.animateIn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.terminalInputArea {
+.aboutMeTitle {
+  font-size: 2.8em;
+  color: #FFA726;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.aboutMeText {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #E9ECEF;
+}
+
+.aboutMeCta {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 1.05em;
+  color: #000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.aboutMeCta:hover {
+  background-color: #FB8C00;
+  transform: translateY(-2px);
+}
+
+/* Portfolio Section Preview - Main Wrapper for two-column layout */
+.portfolioPreview {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-top: 5px; /* Space above the input line */
-}
-
-.terminalPrompt {
-  white-space: nowrap; /* Prevent prompt from wrapping */
-  margin-right: 5px;
-}
-
-.terminalInput {
-  background-color: transparent;
-  border: none;
-  color: #00ff00; /* Match terminal text color */
-  font-family: inherit; /* Inherit monospace font from .terminalContainer */
-  font-size: inherit; /* Inherit font size */
-  flex-grow: 1; /* Allow input to take remaining space */
-  outline: none; /* Remove default focus outline */
-  caret-color: #00ff00; /* Set blinking cursor color */
-}
-
-@keyframes fadeInTerminal {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Glitch Effect Styles */
-.glitchActive {
-  animation: glitchAnim 0.8s linear forwards;
-  position: relative; /* Needed for pseudo-elements */
-}
-
-.glitchActive::before,
-.glitchActive::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
+  gap: 40px;
   width: 100%;
-  height: 100%;
-  background: transparent; /* Or match the background of .heroText parent if needed */
-  overflow: hidden;
+  max-width: 1200px;
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+  color: #212529; 
 }
 
-.glitchActive::before {
-  left: 2px;
-  text-shadow: -1px 0 red;
-  clip: rect(24px, 550px, 90px, 0);
-  animation: glitchAnimBefore 0.8s linear infinite alternate-reverse;
+.portfolioPreview.animateIn {
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
-.glitchActive::after {
-  left: -2px;
-  text-shadow: -1px 0 blue;
-  clip: rect(85px, 550px, 140px, 0);
-  animation: glitchAnimAfter 0.8s linear infinite alternate-reverse;
+/* Left side: Text content */
+.portfolioInfo {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-@keyframes glitchAnim {
-  0% { transform: translate(0); opacity: 1; }
-  10% { transform: translate(-3px, 3px) skewX(5deg) skewY(2deg); opacity: 0.8; }
-  20% { transform: translate(3px, -3px) skewX(-3deg) skewY(-4deg); opacity: 1; }
-  30% { transform: translate(-2px, 2px) skewX(2deg) skewY(3deg); opacity: 0.8; }
-  40% { transform: translate(2px, -2px) skewX(-4deg) skewY(-1deg); opacity: 1; }
-  50% { transform: translate(-3px, 3px) skewX(3deg) skewY(2deg); opacity: 0.7; }
-  60% { transform: translate(3px, -3px) skewX(-2deg) skewY(-3deg); opacity: 1; }
-  70% { transform: translate(-2px, 2px) skewX(4deg) skewY(1deg); opacity: 0.9; }
-  80% { transform: translate(2px, -2px) skewX(-1deg) skewY(-2deg); opacity: 1; }
-  90% { transform: translate(-3px, 3px) skewX(2deg) skewY(4deg); opacity: 0.7; }
-  100% { transform: translate(0); opacity: 0; } /* End with opacity 0 to hide */
+.portfolioPreviewTitle { font-size: 2.8em; color: #FFA726; margin-bottom: 25px; font-weight: 600; text-align: left;}
+.portfolioPreviewText { font-size: 1.1em; line-height: 1.8; margin-bottom: 20px; color: #343A40; text-align: left;}
+.portfolioPreviewCta { margin-top: 20px; padding: 12px 28px; border-radius: 10px; font-size: 1.05em; color: #000; transition: background-color 0.3s ease, transform 0.2s ease; }
+.portfolioPreviewCta:hover { background-color: #FB8C00; transform: translateY(-2px); }
+
+/* Right side: Image cards column */
+.portfolioCardsColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 200px;
+  margin: 0 0 0 300px;
 }
 
-@keyframes glitchAnimBefore {
-  0% { clip: rect(42px, 9999px, 44px, 0); transform: skew(0.3deg); }
-  10% { clip: rect(17px, 9999px, 96px, 0); transform: skew(0.2deg); }
-  20% { clip: rect(40px, 9999px, 19px, 0); transform: skew(0.5deg); }
-  30% { clip: rect(15px, 9999px, 59px, 0); transform: skew(0.1deg); }
-  40% { clip: rect(78px, 9999px, 23px, 0); transform: skew(0.4deg); }
-  50% { clip: rect(47px, 9999px, 71px, 0); transform: skew(0.2deg); }
-  60% { clip: rect(22px, 9999px, 88px, 0); transform: skew(0.6deg); }
-  70% { clip: rect(63px, 9999px, 37px, 0); transform: skew(0.1deg); }
-  80% { clip: rect(33px, 9999px, 70px, 0); transform: skew(0.3deg); }
-  90% { clip: rect(50px, 9999px, 4px, 0); transform: skew(0.5deg); }
-  100% { clip: rect(92px, 9999px, 55px, 0); transform: skew(0.2deg); }
+.portfolioCardItem {
+  width: 400px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes glitchAnimAfter {
-  0% { clip: rect(65px, 9999px, 79px, 0); transform: skew(-0.2deg); }
-  10% { clip: rect(29px, 9999px, 8px, 0); transform: skew(-0.4deg); }
-  20% { clip: rect(78px, 9999px, 33px, 0); transform: skew(-0.1deg); }
-  30% { clip: rect(40px, 9999px, 92px, 0); transform: skew(-0.5deg); }
-  40% { clip: rect(13px, 9999px, 58px, 0); transform: skew(-0.3deg); }
-  50% { clip: rect(88px, 9999px, 42px, 0); transform: skew(-0.2deg); }
-  60% { clip: rect(37px, 9999px, 70px, 0); transform: skew(-0.6deg); }
-  70% { clip: rect(5px, 9999px, 81px, 0); transform: skew(-0.1deg); }
-  80% { clip: rect(60px, 9999px, 25px, 0); transform: skew(-0.4deg); }
-  90% { clip: rect(10px, 9999px, 95px, 0); transform: skew(-0.2deg); }
-  100% { clip: rect(72px, 9999px, 39px, 0); transform: skew(-0.5deg); }
+.portfolioCardItem:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.cardAlignLeft {
+  align-self: flex-start;
+}
+
+.cardAlignRight {
+  align-self: flex-end;
+}
+
+@keyframes subtleFadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
