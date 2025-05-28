@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { portfolioService } from "../services/portfolioService";
 import styles from "./css/Portfolio.module.css";
+import PortfolioItem from "../components/public/portfolio/PortfolioItem";
 
 function Portfolio() {
   const [items, setItems] = useState([]);
@@ -40,54 +41,7 @@ function Portfolio() {
       ) : (
         <div className={styles.portfolioGrid}>
           {items.map((item) => (
-            <div key={item._id} className={styles.portfolioItem}>
-              {item.imageUrl && (
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className={styles.portfolioImage}
-                />
-              )}
-              <div className={styles.itemTextContent}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                {item.tags && item.tags.length > 0 && (
-                  <div>
-                    {item.tags.map((tag, index) => (
-                      <span key={index} className={styles.tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <div className={styles.actionLinks}>
-                  {item.projectUrl && (
-                    <p>
-                      <a
-                        href={item.projectUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        查看專案詳情
-                      </a>
-                    </p>
-                  )}
-                  {item.repositoryUrl && (
-                    <p>
-                      <a
-                        href={item.repositoryUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        查看原始碼
-                      </a>
-                    </p>
-                  )}
-                </div>
-                {/* Optional: Link to a detailed page for each item */}
-                {/* <Link to={`/portfolio/${item._id}`}>查看詳情</Link> */}
-              </div>
-            </div>
+            <PortfolioItem key={item._id} item={item} />
           ))}
         </div>
       )}
