@@ -1,51 +1,38 @@
-/* frontend/src/pages/css/AboutPage.css */
-
-/* --- 共用元素 --- */
-.container {
-  max-width: 800px;
-  margin: 100px 20px 20px 20px;
-  padding: 20px;
-}
-
-.page-title {
-  padding-bottom: 10px;
-  margin-top: 100px;
-  margin-bottom: 30px;
-  color: #ffffff;
-}
+/* About.module.css */
 
 .section-card {
-  background-color: #1e1e1e;
-  border: 1px solid #36334f;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
   border-radius: 8px;
-  padding: 20px;
+  padding: 25px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Softer shadow for light theme */
   font-size: 1.1em; 
-  color: #e0e0e0;
+  color: #333333; /* Dark grey text */
   text-align: justify; 
 }
 
 .section-title {
-  color: #ffffff; /* Darker blue for section titles */
-  font-size: 1.5em;
+  color: #2c3e50; /* Slightly different dark blue/grey for section titles */
+  font-size: 1.7em; /* Increased size a bit */
   text-align: left;
   margin-top: 0;
-  border-bottom: 1px solid #36334f;
+  border-bottom: 1px solid #E0E0E0; /* Light grey border */
   padding-bottom: 15px;
+  margin-bottom: 20px; /* Space below title */
 }
 
 .loading-message {
   font-size: 1.2em;
-  color: #555;
+  color: #555555;
   text-align: center;
   padding: 50px;
 }
 
 .error-message {
-  color: red;
-  background-color: #ffebee;
-  border: 1px solid red;
+  color: #D32F2F; /* Darker red for text */
+  background-color: #FFEBEE; /* Light red background */
+  border: 1px solid #FFCDD2; /* Light red border */
   padding: 15px;
   border-radius: 5px;
   text-align: center;
@@ -53,28 +40,31 @@
 
 .no-content-message {
   font-size: 1.1em;
-  color: #777;
+  color: #777777;
   text-align: center;
   padding: 40px;
 }
-/* --- 共用元素 --- */
+/* --- Common Elements End --- */
 
 /* --- Layout for About Page with Sidebar --- */
 .about-page-layout {
   display: flex;
-  max-width: 1200px; /* Adjust as needed */
-  margin: 120px auto 20px 20px; /* Top margin for navbar, auto for horizontal centering */
-  gap: 30px; /* Space between sidebar and main content */
+  max-width: 1200px;
+  margin: 120px auto 40px 20px; /* Centered with more bottom margin */
+  gap: 40px; /* Increased gap */
+  padding: 0 20px; /* Add horizontal padding to the layout container */
 }
 
 .sidebar-nav {
-  width: 220px; /* Fixed width for the sidebar */
-  flex-shrink: 0; /* Prevent sidebar from shrinking */
-  position: sticky; /* Make sidebar sticky */
-  top: 120px; /* Start stickiness below the main navbar, adjust if needed */
-  height: calc(100vh - 140px); /* Adjust height considering top offset and some bottom padding */
-  overflow-y: auto; /* Allow scrolling within sidebar if content overflows */
-  padding-right: 15px; /* Add some padding to avoid scrollbar overlapping content */
+  width: 240px; /* Slightly wider sidebar */
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px; /* Adjusted for new navbar height potentially */
+  height: calc(100vh - 120px); 
+  overflow-y: auto;
+  padding-right: 50px;
+  border-right: 1px solid #E0E0E0; /* Add a subtle separator line */
+  text-align: left;
 }
 
 .sidebar-nav ul {
@@ -85,93 +75,75 @@
 
 .sidebar-nav li a {
   display: block;
-  padding: 10px 15px;
-  color: #c5c5c5; /* Lighter color for inactive links */
+  padding: 12px 18px; /* Adjusted padding */
+  color: #495057; /* Medium dark grey for inactive links */
   text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
   font-weight: 500;
-  border-left: 3px solid transparent; /* For active indicator */
+  border-left: 4px solid transparent; /* Thicker active indicator line, transparent initially */
   cursor: pointer;
 }
 
 .sidebar-nav li a:hover {
-  color: #ffffff;
+  color: #FFA726; /* Orange accent on hover */
+  background-color: #F8F9FA; /* Very light grey background on hover */
 }
 
 .sidebar-nav li.active a {
-  color: #62aae2; /* Highlight color for active link text */
-  background-color: #1f2937; /* Background for active link */
-  font-weight: bold;
+  color: #FB8C00; /* Darker orange for active link text */
+  background-color: rgba(255, 167, 38, 0.08); /* Very light orange background */
+  font-weight: 600; /* Semi-bold for active */
 }
 
 .main-content {
-  flex-grow: 1; /* Allow main content to take remaining space */
-  /* The .container class styling (max-width, margin, padding) is now handled by .about-page-layout and specific content/sidebar styles */
-  /* So, we remove the margin and padding from .section-card if it was previously centered by .container */
-}
-
-/* Adjust .section-card if it had its own centering margins previously */
-.section-card {
-  background-color: #1e1e1e;
-  border: 1px solid #36334f;
-  border-radius: 8px;
-  padding: 25px; /* Increased padding a bit */
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.2);
-  font-size: 1.1em; 
-  color: #e0e0e0;
-  text-align: justify; 
-  /* Removed margin: auto; if present, as layout is now controlled by flex */
+  flex-grow: 1;
 }
 
 /* --- skills section --- */
-.content em{
-  color: #d4de1c;
+.content em {
+  background-color: gold;
   font-weight: bold;
 }
 
 .skills-content {
   display: flex;
   flex-wrap: wrap; 
-  gap: 20px;
-  justify-content: center; 
+  justify-content: flex-start; /* Align to start */
+  gap: 26.7px; /* Increased gap */
 }
 
 .skill-item-card { 
   display: flex; 
-  min-width: 150px; 
-  height: 180px; 
+  min-width: 140px; /* Slightly wider cards */
+  height: 140px; 
   position: relative; 
   transform-style: preserve-3d;
   transition: transform 0.7s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
   perspective: 1000px; 
-  border: 1px solid #36334f;
+  border: 1px solid #E0E0E0; /* Light grey border */
   border-radius: 8px;
-  background-color: transparent; 
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Base shadow */
+  background-color: #FFFFFF; /* White background for cards */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Base shadow for light theme */
 }
 
-/* Hover effect for non-flipped cards */
 .skill-item-card:hover:not(.is-flipped) {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15), 0 0 8px rgba(86, 133, 188, 0.2);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Enhanced shadow */
   z-index: 5;
 }
 
-/* Styles for the flipped state (when card is clicked) */
 .skill-item-card.is-flipped {
-  transform: rotateY(180deg) scale(2); 
+  transform: rotateY(180deg) scale(1.8); /* Adjusted scale for flipped */
   z-index: 10; 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 25px rgba(86, 133, 188, 0.9); 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Enhanced shadow for flipped */
 }
 
-/* Hover effect for flipped cards */
 .skill-item-card.is-flipped:hover {
-  transform: rotateY(180deg) scale(2.03) translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 30px rgba(86, 133, 188, 1); 
-  z-index: 11; /* Ensure it stays on top */
+  transform: rotateY(180deg) scale(1.82) translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  z-index: 11;
 }
 
 .skill-card-front,
@@ -179,31 +151,30 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hide the back of the card when it's not facing the viewer */
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 8px; /* Match parent's border-radius */
+  border-radius: 8px;
   padding: 15px;
-  box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+  box-sizing: border-box;
   text-align: center;
-  /* Add transition for smooth appearance of front/back if they change opacity or visibility */
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
 }
 
 .skill-card-front {
-  background-color: #2a2a38; /* Slightly different background for front */
-  color: #e0e0e0;
-  z-index: 2; /* Front is above back initially */
+  background-color: #FFFFFF; /* White background */
+  color: #333333; /* Dark text */
+  z-index: 2;
 }
 
 .skill-card-back {
-  background-color: #3a3a4c; /* Slightly different background for back */
-  color: #c5c5c5;
-  transform: rotateY(180deg); /* Initially flipped */
+  background-color: #F8F9FA; /* Very light grey for back */
+  color: #495057; /* Medium dark text */
+  transform: rotateY(180deg);
   z-index: 1;
-  font-size: 5px; /* User change from previous step */
+  font-size: 0.9em; /* Adjusted font size for back content */
 }
 
 .skill-card-back p {
@@ -211,84 +182,78 @@
 }
 
 .skill-icon {
-  font-size: 3em; /* Larger icon */
-  margin-bottom: 10px; /* Space between icon and name */
+  font-size: 3.5em; /* Larger icon */
+  margin-bottom: 15px; /* Space between icon and name */
 }
 
 .skill-name {
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 600; /* Semi-bold */
   margin: 0;
+  color: #212529; /* Dark text */
 }
 
 /* --- education section --- */
 .education-content {
-  position: relative; /* For positioning the timeline pseudo-element */
-  padding-left: 30px; /* Space for the timeline line and dots */
+  position: relative;
+  padding-left: 30px;
 }
 
-/* The timeline vertical line */
 .education-content::before {
   content: '';
   position: absolute;
-  left: 22.8px; /* Adjust to center the line relative to the dots */
-  top: 15px;   /* Start below the first title a bit */
-  bottom: 15px; /* End above the last item a bit */
+  left: 10px; /* Adjusted for dot alignment */
+  top: 15px;
+  bottom: 15px;
   width: 2px;
-  background-color: #4a5a70; /* Timeline color */
+  background-color: #CED4DA; /* Light grey timeline */
 }
 
 .education-content h2, 
 .education-content h3, 
 .education-content p {
-  position: relative; /* Needed for dot positioning if we attach dots to these */
-  margin-left: 10px; /* Indent content to the right of the timeline dots */
+  position: relative;
+  margin-left: 25px; /* Indent content to the right of the timeline dots */
 }
 
 /* Styling for the institution name */
 .education-content h2 {
   font-size: 1.4em;
-  color: #a5c9ff; /* Light blue for institution */
-  margin-top: 25px; /* Space between education entries */
-  margin-bottom: 5px;
-  padding-left: 25px; /* Space for the dot */
+  color: #2c3e50;
+  margin-bottom: 5px; /* Reduced margin */
 }
 
-/* Add a dot before each H2 (institution) */
+/* Timeline dot for h2 */
 .education-content h2::before {
   content: '';
   position: absolute;
-  left: -24px; /* Position dot on the timeline (padding-left of .education-content + half of dot width approx) */
+  left: -23px; /* Position dot on the timeline */
   top: 50%;
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background-color: #62aae2; /* Dot color */
+  background-color: #FFA726; /* Orange accent for dots */
   border-radius: 50%;
-  border: 2px solid #1e1e1e; /* Match section card background for a 'cutout' effect */
-  z-index: 1;
+  border: 2px solid #FFFFFF; /* White border around dot for contrast */
 }
 
 .education-content h2:first-of-type {
-  margin-top: 0; /* No top margin for the very first institution */
+  margin-top: 0; /* Remove top margin from the first h2 if any */
 }
 
-/* Styling for the department/major */
 .education-content h3 {
   font-size: 1.1em;
-  color: #e0e0e0; /* White-ish for department */
-  font-weight: 500;
+  color: #495057;
   margin-top: 0;
-  margin-bottom: 4px;
-  padding-left: 25px;
+  margin-bottom: 8px;
+  font-weight: 600; /* Semi-bold */
 }
 
-/* Styling for the period */
 .education-content p {
   font-size: 0.95em;
-  color: #8b949e; /* Grey for period */
-  margin-top: 0;
-  margin-bottom: 20px; /* Space after the period, before next institution */
-  padding-left: 25px;
+  color: #555555;
+  line-height: 1.7;
+  margin-bottom: 15px;
 }
-/* --- education section --- */
+
+/* --- Ensure any specific icon styles in Icon.css are also reviewed --- */
