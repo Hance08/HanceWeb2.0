@@ -15,7 +15,7 @@ import AdminAboutEditor from "./pages/adminPages/AdminAboutEditor";
 import AdminPortfolioEditor from "./pages/adminPages/AdminPortfolioEditor";
 import AdminAddPortfolioItem from "./pages/adminPages/AdminAddPortfolioItem";
 import AdminEditPortfolioItem from "./pages/adminPages/AdminEditPortfolioItem";
-// import AnimatedShapesBackground from './components/animation/AnimatedShapesBackground';
+import AnimatedShapesBackground from "./components/animation/AnimatedShapesBackground";
 
 function App() {
   console.log("App component rendering...");
@@ -40,16 +40,9 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<AdminOverview />} />{" "}
-            {/* Default for /admin */}
-            <Route path="about" element={<AdminAboutEditor />} />{" "}
-            {/* Changed to AdminAboutPage */}
+            <Route index element={<AdminOverview />} />
+            <Route path="about" element={<AdminAboutEditor />} />
             <Route path="portfolio" element={<AdminPortfolioEditor />} />
-            {/* 
-              The following routes for portfolio item management might also be nested 
-              under /admin/portfolio in the future, or kept separate if their layout differs.
-              For now, they are kept as is for minimal disruption.
-            */}
           </Route>
 
           {/* Kept for now, consider nesting under /admin/portfolio or a dedicated portfolio management layout */}

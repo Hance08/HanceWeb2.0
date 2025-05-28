@@ -133,46 +133,93 @@
 
 .skills-content {
   display: flex;
-  flex-direction: column;
-  max-width: 800px;
+  flex-wrap: wrap; 
   gap: 20px;
+  justify-content: center; 
 }
 
 .skill-item-card { 
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  padding: 10px;
+  display: flex; 
+  min-width: 150px; 
+  height: 180px; 
+  position: relative; 
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  perspective: 1000px; 
   border: 1px solid #36334f;
   border-radius: 8px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(86, 133, 188, 0.7); */
+  background-color: transparent; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Base shadow */
+}
+
+/* Hover effect for non-flipped cards */
+.skill-item-card:hover:not(.is-flipped) {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15), 0 0 8px rgba(86, 133, 188, 0.2);
+  z-index: 5;
+}
+
+/* Styles for the flipped state (when card is clicked) */
+.skill-item-card.is-flipped {
+  transform: rotateY(180deg) scale(2); 
+  z-index: 10; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 25px rgba(86, 133, 188, 0.9); 
+}
+
+/* Hover effect for flipped cards */
+.skill-item-card.is-flipped:hover {
+  transform: rotateY(180deg) scale(2.03) translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 30px rgba(86, 133, 188, 1); 
+  z-index: 11; /* Ensure it stays on top */
+}
+
+.skill-card-front,
+.skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back of the card when it's not facing the viewer */
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 8px; /* Match parent's border-radius */
+  padding: 15px;
+  box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+  text-align: center;
+  /* Add transition for smooth appearance of front/back if they change opacity or visibility */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
+}
+
+.skill-card-front {
+  background-color: #2a2a38; /* Slightly different background for front */
+  color: #e0e0e0;
+  z-index: 2; /* Front is above back initially */
+}
+
+.skill-card-back {
+  background-color: #3a3a4c; /* Slightly different background for back */
+  color: #c5c5c5;
+  transform: rotateY(180deg); /* Initially flipped */
+  z-index: 1;
+  font-size: 5px; /* User change from previous step */
+}
+
+.skill-card-back p {
+  margin: 5px 0;
 }
 
 .skill-icon {
-  font-size: 2em;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px; 
+  font-size: 3em; /* Larger icon */
+  margin-bottom: 10px; /* Space between icon and name */
 }
 
-/* --- Brand Icon Colors --- */
-.skill-icon.fa-flutter { /* Targeting Flutter icon specifically within skill items */
-  color: #02569B; /* Flutter's primary blue */
+.skill-name {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0;
 }
-
-.skill-icon.fa-python { /* Targeting Python icon */
-  color: #3776AB; /* Python's blue */
-}
-
-.skill-icon.fa-js { /* Example for JavaScript (often yellow) */
-  color: #F7DF1E;
-}
-
-.skill-icon.fa-java { /* Targeting Java icon */
-  color: #007396; /* Java's blue */
-}
-/* --- skills section --- */
 
 /* --- education section --- */
 .education-content {

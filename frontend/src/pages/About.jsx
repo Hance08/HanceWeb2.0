@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { aboutService } from "../services/aboutService";
+import "./css/Icon.css";
 import styles from "./css/About.module.css";
 import SidebarNav from "../components/public/about/SidebarNav";
 import SectionDisplay from "../components/public/about/SectionDisplay";
@@ -10,6 +11,7 @@ function About() {
   const [error, setError] = useState("");
   const [activeSection, setActiveSection] = useState("");
   const sectionRefs = useRef({});
+  const [flippedSkills, setFlippedSkills] = useState(new Set()); // State for flipped skill cards
 
   useEffect(() => {
     const fetchSections = async () => {
@@ -82,6 +84,19 @@ function About() {
     }
   };
 
+  // Function to handle skill card click
+  const handleSkillCardClick = (skillId) => {
+    setFlippedSkills((prevFlippedSkills) => {
+      const newFlippedSkills = new Set(prevFlippedSkills);
+      if (newFlippedSkills.has(skillId)) {
+        newFlippedSkills.delete(skillId);
+      } else {
+        newFlippedSkills.add(skillId);
+      }
+      return newFlippedSkills;
+    });
+  };
+
   if (loading) {
     return <div className={styles["loading-message"]}>載入中...</div>;
   }
@@ -106,13 +121,24 @@ function About() {
       />
 
       <div className={styles["main-content"]}>
-        {sections.map((section) => {
+        {sections.map((section, sectionIndex) => {
+          // Added sectionIndex for a potential key if _id is not reliable for skills
           return (
             <SectionDisplay
-              key={section._id || section.sectionName}
+              key={section._id || section.sectionName || sectionIndex}
               section={section}
               sectionRef={sectionRefs.current[section.sectionName]}
               styles={styles}
+              // Pass flipped state and handler only if it's the skills section
+              isSkillsSection={section.sectionName === "skills"}
+              flippedSkills={
+                section.sectionName === "skills" ? flippedSkills : undefined
+              }
+              onSkillCardClick={
+                section.sectionName === "skills"
+                  ? handleSkillCardClick
+                  : undefined
+              }
             />
           );
         })}
