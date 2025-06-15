@@ -134,11 +134,6 @@ function About() {
               flippedSkills={
                 section.sectionName === "skills" ? flippedSkills : undefined
               }
-              onSkillCardClick={
-                section.sectionName === "skills"
-                  ? handleSkillCardClick
-                  : undefined
-              }
             />
           );
         })}

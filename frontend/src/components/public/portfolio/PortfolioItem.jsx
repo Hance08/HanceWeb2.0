@@ -24,17 +24,6 @@ function PortfolioItem({ item }) {
           </div>
         )}
         <div className={styles.actionLinks}>
-          {item.projectUrl && (
-            <p>
-              <a
-                href={item.projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                查看專案詳情
-              </a>
-            </p>
-          )}
           {item.repositoryUrl && (
             <p>
               <a
@@ -42,7 +31,7 @@ function PortfolioItem({ item }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                查看原始碼
+                在GitHub查看詳細資訊
               </a>
             </p>
           )}
