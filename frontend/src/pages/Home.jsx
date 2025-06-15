@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./css/Home.module.css";
 import { useMenuColor } from "../contexts/MenuColorContext";
 import HeroSection from "../components/public/home/HeroSection";
 import AboutMePreview from "../components/public/home/AboutMePreview";
 import PortfolioPreview from "../components/public/home/PortfolioPreview";
+import VirtualAssistant from "../components/public/home/VirtualAssistant";
 
 function Home() {
   const { setMenuIconColor, setDarkSectionRef } = useMenuColor();
@@ -21,7 +22,10 @@ function Home() {
 
   return (
     <div className={styles.pageContainer}>
-      <HeroSection />
+      <div className={styles.heroContainer}>
+        <HeroSection />
+        <VirtualAssistant />
+      </div>
       <div ref={blackSectionRef} className={styles.subBlackContainer}>
         <AboutMePreview />
       </div>

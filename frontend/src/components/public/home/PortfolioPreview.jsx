@@ -60,7 +60,6 @@ function PortfolioPreview() {
         <h2 className={styles.portfolioPreviewTitle}>精選專案</h2>
         <p className={styles.portfolioPreviewText}>
           以下是我近期投入的幾個專案，它們展示了我在不同技術領域的探索與實踐。
-          從前端的互動設計到後端的資料處理，每一個專案都凝聚了我的努力與思考。
         </p>
         <button
           className={`ctaButtonPrimary ${styles.portfolioPreviewCta}`}

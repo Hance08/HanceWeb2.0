@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../../../pages/css/Home.module.css"; // Adjusted path for styles
+import aboutMeSvg from "../../../assets/aboutme.svg";
 
 function AboutMePreview() {
   const navigate = useNavigate();
@@ -27,26 +28,28 @@ function AboutMePreview() {
   }, []);
 
   return (
-    <div
-      ref={aboutSectionRef}
-      className={`${styles.aboutMePreview} ${
-        isAboutSectionVisible ? styles.animateIn : ""
-      }`}
-    >
-      <h2 className={styles.aboutMeTitle}>關於我</h2>
-      <p className={styles.aboutMeText}>
-        我是一名充滿熱情的全端開發者，專注於打造流暢、美觀且實用的網頁應用程式。對於學習新技術抱有極大的熱忱，並樂於接受挑戰。
-      </p>
-      <p className={styles.aboutMeText}>
-        擅長使用 React、Node.js 等現代網頁技術棧，並對 UI/UX
-        設計有著濃厚的興趣。致力於透過程式碼解決實際問題，並為使用者帶來卓越的數位體驗。
-      </p>
-      <button
-        className={`ctaButtonPrimary ${styles.aboutMeCta}`}
-        onClick={() => navigate("/about")}
-      >
-        了解更多
-      </button>
+    <div className={styles.aboutMeContainer}>
+      <div className={styles.aboutMePreview}>
+        <h2 className={styles.aboutMeTitle}>關於我</h2>
+        <p className={styles.aboutMeText}>
+          目前就讀於臺灣科技大學資訊管理系，熱愛開發系統、撰寫程式。目前專注於學校專題開發，自己也有一些Side
+          Project， 喜歡學習新技術、解決問題，對於前端、後端、資料庫、DevOps
+          都有涉獵。
+        </p>
+        <button
+          className={`ctaButtonPrimary ${styles.aboutMeCta}`}
+          onClick={() => navigate("/about")}
+        >
+          了解更多
+        </button>
+      </div>
+      <div className={styles.aboutMeImageContainer}>
+        <img
+          src={aboutMeSvg}
+          alt="About Me Illustration"
+          className={styles.aboutMeImage}
+        />
+      </div>
     </div>
   );
 }

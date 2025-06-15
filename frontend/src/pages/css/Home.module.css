@@ -34,6 +34,12 @@
   justify-content: flex-start;
 }
 
+.heroContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* Common styles for the main content blocks within each section */
 .heroMainContent, .aboutMePreview, .portfolioPreviewWrapper {
   display: flex;
@@ -198,4 +204,99 @@
 @keyframes subtleFadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Virtual Assistant Styles */
+.assistantContainer {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.lottieAnimation {
+  width: 100%;
+  height: 100%;
+}
+
+/* About Me Section Styles */
+.aboutMeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.aboutMePreview {
+  flex: 1;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.aboutMeImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInRight 0.8s ease-out 0.3s forwards;
+}
+
+.aboutMeImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .aboutMeContainer {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .aboutMeImageContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutMeImageContainer {
+    max-width: 300px;
+  }
 }
