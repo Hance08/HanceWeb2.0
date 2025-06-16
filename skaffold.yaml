@@ -1,0 +1,21 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: hance-website
+build:
+  local:
+    push: false
+  artifacts:
+    - image: hance-backend
+      context: backend
+      docker:
+        dockerfile: Dockerfile
+    - image: hance-frontend
+      context: frontend
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - k8s/*.yaml
+deploy:
+  kubectl: {}
