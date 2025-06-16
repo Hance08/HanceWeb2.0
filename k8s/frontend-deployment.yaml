@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hance-frontend
+  labels:
+    app: hance-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hance-frontend
+  template:
+    metadata:
+      labels:
+        app: hance-frontend
+    spec:
+      containers:
+        - name: hance-frontend
+          image: hance-frontend
+          ports:
+            - containerPort: 9301
