@@ -1,0 +1,15 @@
+.fa-flutter { /* Targetin specifically within skill items */
+    color: #02569B; /* Flutter's primary blue */
+  }
+  
+.fa-python { /* Targeti */
+    color: #3776AB; /* Python's blue */
+  }
+
+.fa-js { /* Example for JavaScript (often yellow) */
+    color: #F7DF1E;
+  }
+  
+.fa-java { /* Targe */
+    color: #007396; /* Java's blue */
+  }

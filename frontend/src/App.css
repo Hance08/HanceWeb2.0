@@ -1,42 +1,51 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100%; /* Keep this to prevent overflow */
+  width: 100%; /* Ensure #root takes full width of its parent (body) */
+  /* margin: 0 auto; --- REMOVED to allow full-width children */
+  /* padding: 2rem; --- Kept commented as it was */
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Primary CTA Button (Orange) */
+.ctaButtonPrimary {
+  background-color: #FFA726; /* Accent orange */
+  color: white;
+  border-color: #FFA726;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ctaButtonPrimary:hover {
+  background-color: #FB8C00; /* Darker orange */
+  border-color: #FB8C00;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Secondary / Ghost Button (Orange outline) */
+.ctaButtonSecondary {
+  background-color: transparent;
+  color: #FFA726;
+  border-color: #FFA726;
 }
 
-.card {
-  padding: 2em;
+.ctaButtonSecondary:hover {
+  background-color: rgba(255, 167, 38, 0.1); /* Light orange fill on hover */
+  color: #FB8C00;
+  border-color: #FB8C00;
+  transform: translateY(-2px);
 }
 
-.read-the-docs {
-  color: #888;
+/* CTA Button for danger/warning actions */
+.ctaButtonDanger {
+  background-color: #dc3545; /* Standard danger red */
+  color: white;
+  border-color: #dc3545;
 }
+
+.ctaButtonDanger:hover {
+  background-color: #c82333; /* Darker red */
+  border-color: #bd2130;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Existing App.css content can go below or be integrated */

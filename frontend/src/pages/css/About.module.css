@@ -1,0 +1,259 @@
+/* About.module.css */
+
+.section-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Softer shadow for light theme */
+  font-size: 1.1em; 
+  color: #333333; /* Dark grey text */
+  text-align: justify; 
+}
+
+.section-title {
+  color: #2c3e50; /* Slightly different dark blue/grey for section titles */
+  font-size: 1.7em; /* Increased size a bit */
+  text-align: left;
+  margin-top: 0;
+  border-bottom: 1px solid #E0E0E0; /* Light grey border */
+  padding-bottom: 15px;
+  margin-bottom: 20px; /* Space below title */
+}
+
+.loading-message {
+  font-size: 1.2em;
+  color: #555555;
+  text-align: center;
+  padding: 50px;
+}
+
+.error-message {
+  color: #D32F2F; /* Darker red for text */
+  background-color: #FFEBEE; /* Light red background */
+  border: 1px solid #FFCDD2; /* Light red border */
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.no-content-message {
+  font-size: 1.1em;
+  color: #777777;
+  text-align: center;
+  padding: 40px;
+}
+/* --- Common Elements End --- */
+
+/* --- Layout for About Page with Sidebar --- */
+.about-page-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 120px auto 40px 20px; /* Centered with more bottom margin */
+  gap: 40px; /* Increased gap */
+  padding: 0 20px; /* Add horizontal padding to the layout container */
+}
+
+.sidebar-nav {
+  width: 240px; /* Slightly wider sidebar */
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px; /* Adjusted for new navbar height potentially */
+  height: calc(100vh - 120px); 
+  overflow-y: auto;
+  padding-right: 50px;
+  border-right: 1px solid #E0E0E0; /* Add a subtle separator line */
+  text-align: left;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 12px 18px; /* Adjusted padding */
+  color: #495057; /* Medium dark grey for inactive links */
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
+  font-weight: 500;
+  border-left: 4px solid transparent; /* Thicker active indicator line, transparent initially */
+  cursor: pointer;
+}
+
+.sidebar-nav li a:hover {
+  color: #FFA726; /* Orange accent on hover */
+  background-color: #F8F9FA; /* Very light grey background on hover */
+}
+
+.sidebar-nav li.active a {
+  color: #FB8C00; /* Darker orange for active link text */
+  background-color: rgba(255, 167, 38, 0.08); /* Very light orange background */
+  font-weight: 600; /* Semi-bold for active */
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+/* --- skills section --- */
+.content em {
+  background-color: gold;
+  font-weight: bold;
+}
+
+.skills-content {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: flex-start; /* Align to start */
+  gap: 26.7px; /* Increased gap */
+}
+
+.skill-item-card { 
+  display: flex; 
+  min-width: 140px; /* Slightly wider cards */
+  height: 140px; 
+  position: relative; 
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  perspective: 1000px; 
+  border: 1px solid #E0E0E0; /* Light grey border */
+  border-radius: 8px;
+  background-color: #FFFFFF; /* White background for cards */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Base shadow for light theme */
+}
+
+.skill-item-card:hover:not(.is-flipped) {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Enhanced shadow */
+  z-index: 5;
+}
+
+.skill-item-card.is-flipped {
+  transform: rotateY(180deg) scale(1.8); /* Adjusted scale for flipped */
+  z-index: 10; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Enhanced shadow for flipped */
+}
+
+.skill-item-card.is-flipped:hover {
+  transform: rotateY(180deg) scale(1.82) translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  z-index: 11;
+}
+
+.skill-card-front,
+.skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
+}
+
+.skill-card-front {
+  background-color: #FFFFFF; /* White background */
+  color: #333333; /* Dark text */
+  z-index: 2;
+}
+
+.skill-card-back {
+  background-color: #F8F9FA; /* Very light grey for back */
+  color: #495057; /* Medium dark text */
+  transform: rotateY(180deg);
+  z-index: 1;
+  font-size: 0.9em; /* Adjusted font size for back content */
+}
+
+.skill-card-back p {
+  margin: 5px 0;
+}
+
+.skill-icon {
+  font-size: 3.5em; /* Larger icon */
+  margin-bottom: 15px; /* Space between icon and name */
+}
+
+.skill-name {
+  font-size: 1.1em;
+  font-weight: 600; /* Semi-bold */
+  margin: 0;
+  color: #212529; /* Dark text */
+}
+
+/* --- education section --- */
+.education-content {
+  position: relative;
+  padding-left: 30px;
+}
+
+.education-content::before {
+  content: '';
+  position: absolute;
+  left: 10px; /* Adjusted for dot alignment */
+  top: 15px;
+  bottom: 15px;
+  width: 2px;
+  background-color: #CED4DA; /* Light grey timeline */
+}
+
+.education-content h2, 
+.education-content h3, 
+.education-content p {
+  position: relative;
+  margin-left: 25px; /* Indent content to the right of the timeline dots */
+}
+
+/* Styling for the institution name */
+.education-content h2 {
+  font-size: 1.4em;
+  color: #2c3e50;
+  margin-bottom: 5px; /* Reduced margin */
+}
+
+/* Timeline dot for h2 */
+.education-content h2::before {
+  content: '';
+  position: absolute;
+  left: -23px; /* Position dot on the timeline */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: #FFA726; /* Orange accent for dots */
+  border-radius: 50%;
+  border: 2px solid #FFFFFF; /* White border around dot for contrast */
+}
+
+.education-content h2:first-of-type {
+  margin-top: 0; /* Remove top margin from the first h2 if any */
+}
+
+.education-content h3 {
+  font-size: 1.1em;
+  color: #495057;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 600; /* Semi-bold */
+}
+
+.education-content p {
+  font-size: 0.95em;
+  color: #555555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* --- Ensure any specific icon styles in Icon.css are also reviewed --- */

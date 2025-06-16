@@ -1,0 +1,110 @@
+.editorContainer {
+  padding: 20px;
+}
+
+.title {
+  font-size: 2em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.actionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.actionButton,
+.editButton,
+.deleteButton {
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  border: none;
+}
+
+.actionButton {
+  background-color: #007bff;
+  color: white;
+}
+
+.actionButton:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.previewButton {
+  background-color: #28a745; /* Green for preview */
+  color: white;
+  margin-left: 10px;
+}
+
+.previewButton:hover {
+  background-color: #1e7e34;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemTitle {
+  font-size: 1.1em;
+  color: #444;
+  margin: 0;
+}
+
+.itemActions button {
+  margin-left: 8px;
+}
+
+.editButton {
+  background-color: #ffc107; /* Yellow for edit */
+  color: #333;
+}
+
+.editButton:hover {
+  background-color: #e0a800;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.deleteButton {
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.loadingMessage,
+.errorMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+.errorMessage {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+} 

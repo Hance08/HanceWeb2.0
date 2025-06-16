@@ -1,0 +1,302 @@
+/* Home.module.css */
+
+/* General Page Styles */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
+}
+
+/* Container to manage viewport height and content alignment */
+.subWhiteContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: #F8F9FA;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.subBlackContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: #212529;
+  color: #F8F9FA;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Common styles for the main content blocks within each section */
+.heroMainContent, .aboutMePreview, .portfolioPreviewWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;       
+}
+
+.heroMainContent {
+  padding: 20px 0;
+  animation: subtleFadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  max-width: 750px;
+}
+
+.mainGreeting {
+  font-size: 6em; 
+  line-height: 0.5; 
+  margin-bottom: 15px; 
+  font-weight: 300; 
+  color: #333333;
+}
+
+.greetingName {
+  font-weight: 700; 
+  color: #FFA726; 
+}
+
+.welcomeSubtitle {
+  font-size: 2.5em; 
+  color: #555555;
+  margin-bottom: 40px; 
+  font-weight: 400;
+}
+
+.socialLinksContainer {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 25px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  color: #555555;
+  text-decoration: none;
+  font-size: 2em; 
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #FFA726;
+  transform: translateY(-2px);
+}
+
+/* Styles for the About Me preview in the black section */
+.aboutMePreview {
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.aboutMePreview.animateIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.aboutMeTitle {
+  font-size: 2.8em;
+  color: #FFA726;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.aboutMeText {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #E9ECEF;
+}
+
+.aboutMeCta {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 1.05em;
+  color: #000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.aboutMeCta:hover {
+  background-color: #FB8C00;
+  transform: translateY(-2px);
+}
+
+/* Portfolio Section Preview - Main Wrapper for two-column layout */
+.portfolioPreview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+  color: #212529; 
+}
+
+.portfolioPreview.animateIn {
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+/* Left side: Text content */
+.portfolioInfo {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.portfolioPreviewTitle { font-size: 2.8em; color: #FFA726; margin-bottom: 25px; font-weight: 600; text-align: left;}
+.portfolioPreviewText { font-size: 1.1em; line-height: 1.8; margin-bottom: 20px; color: #343A40; text-align: left;}
+.portfolioPreviewCta { margin-top: 20px; padding: 12px 28px; border-radius: 10px; font-size: 1.05em; color: #000; transition: background-color 0.3s ease, transform 0.2s ease; }
+.portfolioPreviewCta:hover { background-color: #FB8C00; transform: translateY(-2px); }
+
+/* Right side: Image cards column */
+.portfolioCardsColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 200px;
+  margin: 0 0 0 300px;
+}
+
+.portfolioCardItem {
+  width: 400px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolioCardItem:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.cardAlignLeft {
+  align-self: flex-start;
+}
+
+.cardAlignRight {
+  align-self: flex-end;
+}
+
+@keyframes subtleFadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Virtual Assistant Styles */
+.assistantContainer {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.lottieAnimation {
+  width: 100%;
+  height: 100%;
+}
+
+/* About Me Section Styles */
+.aboutMeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.aboutMePreview {
+  flex: 1;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.aboutMeImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInRight 0.8s ease-out 0.3s forwards;
+}
+
+.aboutMeImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .aboutMeContainer {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .aboutMeImageContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutMeImageContainer {
+    max-width: 300px;
+  }
+}
