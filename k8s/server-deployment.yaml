@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hance-backend
+  labels:
+    app: hance-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hance-backend
+  template:
+    metadata:
+      labels:
+        app: hance-backend
+    spec:
+      containers:
+        - name: hance-backend
+          image: hance-backend
+          ports:
+            - containerPort: 3001
+          envFrom:
+            - secretRef:
+                name: server-secret
