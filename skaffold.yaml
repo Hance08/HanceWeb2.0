@@ -7,7 +7,7 @@ build:
     push: false
   artifacts:
     - image: hance-backend
-      context: backend
+      context: server
       docker:
         dockerfile: Dockerfile
     - image: hance-frontend
