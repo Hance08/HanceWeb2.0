@@ -55,3 +55,58 @@
     transform: scale(1.1);
   }
 }
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化圖標大小和觸控區域 */
+  
+  .fa-flutter,
+  .fa-python,
+  .fa-js,
+  .fa-java {
+    font-size: 0.8em;
+    transition: color 0.2s ease;
+  }
+
+  .skill-icon, 
+  .social-icon,
+  .nav-icon {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .skill-icon:hover,
+  .social-icon:hover,
+  .nav-icon:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* 極度緊湊的橫屏模式 */
+  
+  .fa-flutter,
+  .fa-python,
+  .fa-js,
+  .fa-java {
+    font-size: 0.7em;
+  }
+
+  .skill-icon, 
+  .social-icon,
+  .nav-icon {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 4px;
+  }
+  
+  .skill-icon:hover,
+  .social-icon:hover,
+  .nav-icon:hover {
+    transform: scale(1.02);
+  }
+}

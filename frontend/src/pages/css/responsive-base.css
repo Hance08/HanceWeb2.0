@@ -338,4 +338,244 @@ html {
   .text-left-mobile {
     text-align: left !important;
   }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化垂直空間 */
+  
+  html {
+    font-size: 14px;
+  }
+
+  /* 橫屏容器優化 */
+  .responsive-container {
+    padding: 0 15px;
+  }
+
+  /* 橫屏間距優化 */
+  .responsive-spacing {
+    margin: 20px 0;
+  }
+
+  /* 橫屏文字大小調整 */
+  .responsive-text-large {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+  
+  .responsive-text-medium {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+  
+  .responsive-text-small {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  /* 橫屏網格優化 */
+  .responsive-grid {
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  /* 橫屏Flexbox優化 */
+  .responsive-flex {
+    gap: 12px;
+    flex-direction: row;
+  }
+
+  /* 橫屏卡片優化 */
+  .responsive-card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* 橫屏導航優化 */
+  .responsive-nav {
+    flex-direction: row;
+    padding: 8px 15px;
+    gap: 15px;
+  }
+
+  /* 橫屏按鈕組優化 */
+  .responsive-button-group {
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .responsive-button-group > * {
+    width: auto;
+    max-width: 150px;
+  }
+
+  /* 橫屏表單優化 */
+  .responsive-form {
+    max-width: 60%;
+    padding: 0 5px;
+  }
+
+  .responsive-input {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  /* 橫屏觸控目標優化 */
+  .touch-target {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 8px;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* 極度緊湊的橫屏模式 */
+  
+  html {
+    font-size: 13px;
+  }
+
+  /* 極緊湊容器 */
+  .responsive-container {
+    padding: 0 10px;
+  }
+
+  /* 極緊湊間距 */
+  .responsive-spacing {
+    margin: 15px 0;
+  }
+
+  /* 極緊湊文字 */
+  .responsive-text-large {
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+  
+  .responsive-text-medium {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+  
+  .responsive-text-small {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  /* 極緊湊網格 */
+  .responsive-grid {
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  /* 極緊湊Flexbox */
+  .responsive-flex {
+    gap: 8px;
+  }
+
+  /* 極緊湊卡片 */
+  .responsive-card {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  /* 極緊湊導航 */
+  .responsive-nav {
+    padding: 5px 10px;
+    gap: 10px;
+  }
+
+  /* 極緊湊按鈕組 */
+  .responsive-button-group {
+    gap: 6px;
+  }
+  
+  .responsive-button-group > * {
+    max-width: 120px;
+  }
+
+  /* 極緊湊表單 */
+  .responsive-form {
+    max-width: 70%;
+  }
+
+  .responsive-input {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  /* 極緊湊觸控目標 */
+  .touch-target {
+    min-height: 36px;
+    min-width: 36px;
+    padding: 6px;
+  }
+}
+
+/* ===== LANDSCAPE UTILITY CLASSES ===== */
+
+/* 橫屏顯示控制 */
+.landscape-hidden {
+  display: block;
+}
+
+.landscape-only {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  .landscape-hidden {
+    display: none !important;
+  }
+  
+  .landscape-only {
+    display: block !important;
+  }
+}
+
+/* 橫屏文字對齊 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .text-center-landscape {
+    text-align: center !important;
+  }
+  
+  .text-left-landscape {
+    text-align: left !important;
+  }
+  
+  .flex-row-landscape {
+    flex-direction: row !important;
+  }
+  
+  .flex-column-landscape {
+    flex-direction: column !important;
+  }
+}
+
+/* 橫屏邊距工具類 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .m-0-landscape { margin: 0 !important; }
+  .mt-0-landscape { margin-top: 0 !important; }
+  .mb-0-landscape { margin-bottom: 0 !important; }
+  .ml-0-landscape { margin-left: 0 !important; }
+  .mr-0-landscape { margin-right: 0 !important; }
+  
+  .p-0-landscape { padding: 0 !important; }
+  .pt-0-landscape { padding-top: 0 !important; }
+  .pb-0-landscape { padding-bottom: 0 !important; }
+  .pl-0-landscape { padding-left: 0 !important; }
+  .pr-0-landscape { padding-right: 0 !important; }
+  
+  /* 減少間距的工具類 */
+  .compact-spacing-landscape {
+    margin: 8px 0 !important;
+    padding: 8px !important;
+  }
+  
+  .compact-vertical-landscape {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
 } 

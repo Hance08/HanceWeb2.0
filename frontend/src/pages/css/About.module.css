@@ -486,3 +486,180 @@
     left: 8px;
   }
 }
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化垂直空間 */
+  
+  .about-page-layout {
+    margin: 40px auto 20px auto;
+    padding: 0 10px;
+    gap: 20px;
+  }
+
+  .sidebar-nav {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+  .sidebar-nav ul {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .sidebar-nav li a {
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+
+  .section-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .skills-content {
+    gap: 12px;
+  }
+
+  .skill-item-card {
+    min-width: 80px;
+    height: 80px;
+  }
+
+  .skill-item-card.is-flipped {
+    transform: rotateY(180deg) scale(1.3);
+  }
+
+  .skill-item-card.is-flipped:hover {
+    transform: rotateY(180deg) scale(1.32) translateY(-2px);
+  }
+
+  .skill-icon {
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
+  .skill-name {
+    font-size: 0.75em;
+  }
+
+  .skill-card-back {
+    font-size: 0.65em;
+    padding: 8px;
+  }
+
+  .education-content {
+    padding-left: 20px;
+  }
+
+  .education-content h2, 
+  .education-content h3, 
+  .education-content p {
+    margin-left: 15px;
+  }
+
+  .education-content h2 {
+    font-size: 1.1em;
+    margin-bottom: 3px;
+  }
+
+  .education-content h3 {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+  }
+
+  .education-content p {
+    font-size: 0.8em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .education-content h2::before {
+    left: -13px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .education-content::before {
+    left: 8px;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* 極度緊湊的橫屏模式 */
+  
+  .about-page-layout {
+    margin: 30px auto 15px auto;
+    padding: 0 8px;
+    gap: 15px;
+  }
+
+  .sidebar-nav {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-nav ul {
+    gap: 5px;
+  }
+
+  .sidebar-nav li a {
+    padding: 4px 8px;
+    font-size: 0.8em;
+  }
+
+  .section-card {
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+  }
+
+  .section-title {
+    font-size: 1.2em;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  .skills-content {
+    gap: 10px;
+  }
+
+  .skill-item-card {
+    min-width: 70px;
+    height: 70px;
+  }
+
+  .skill-icon {
+    font-size: 1.8em;
+    margin-bottom: 3px;
+  }
+
+  .skill-name {
+    font-size: 0.7em;
+  }
+
+  .skill-card-back {
+    font-size: 0.6em;
+    padding: 6px;
+  }
+
+  .education-content h2 {
+    font-size: 1em;
+  }
+
+  .education-content h3 {
+    font-size: 0.9em;
+  }
+
+  .education-content p {
+    font-size: 0.75em;
+    margin-bottom: 8px;
+  }
+}
