@@ -405,6 +405,39 @@
   }
 }
 
+/* ===== PORTRAIT MOBILE - HIDE SIDEBAR ===== */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* 直屏模式：隱藏導覽列，讓內容獲得更多空間 */
+  
+  .about-page-layout {
+    flex-direction: column;
+    gap: 0;
+    margin: 60px auto 40px auto;
+    padding: 0 10px;
+  }
+
+  .sidebar-nav {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-card {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .section-title {
+    font-size: 1.6em;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 480px) {
   .about-page-layout {
     margin: 60px auto 30px auto;
@@ -484,6 +517,39 @@
 
   .education-content::before {
     left: 8px;
+  }
+}
+
+/* ===== SMALL PORTRAIT MOBILE - HIDE SIDEBAR ===== */
+@media (max-width: 480px) and (orientation: portrait) {
+  /* 極小直屏模式：隱藏導覽列 */
+  
+  .about-page-layout {
+    margin: 50px auto 30px auto;
+    padding: 0 8px;
+    gap: 0;
+  }
+
+  .sidebar-nav {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-card {
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+
+  .section-title {
+    font-size: 1.4em;
+    text-align: center;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
   }
 }
 
