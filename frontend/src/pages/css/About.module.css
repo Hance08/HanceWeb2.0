@@ -257,3 +257,232 @@
 }
 
 /* --- Ensure any specific icon styles in Icon.css are also reviewed --- */
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 1024px) {
+  .about-page-layout {
+    gap: 30px;
+    margin: 100px auto 40px auto;
+    padding: 0 15px;
+  }
+
+  .sidebar-nav {
+    width: 200px;
+    padding-right: 30px;
+  }
+
+  .skills-content {
+    gap: 20px;
+  }
+
+  .skill-item-card {
+    min-width: 120px;
+    height: 120px;
+  }
+
+  .skill-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+
+  .skill-name {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-layout {
+    flex-direction: column;
+    gap: 20px;
+    margin: 80px auto 40px auto;
+    padding: 0 10px;
+  }
+
+  .sidebar-nav {
+    width: 100%;
+    position: static;
+    height: auto;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .sidebar-nav li {
+    flex: 0 0 auto;
+  }
+
+  .sidebar-nav li a {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .sidebar-nav li.active a {
+    border-bottom: 3px solid #FFA726;
+    background-color: rgba(255, 167, 38, 0.08);
+  }
+
+  .section-card {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .section-title {
+    font-size: 1.5em;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+  }
+
+  .skills-content {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .skill-item-card {
+    min-width: 100px;
+    height: 100px;
+  }
+
+  .skill-item-card.is-flipped {
+    transform: rotateY(180deg) scale(1.5);
+  }
+
+  .skill-item-card.is-flipped:hover {
+    transform: rotateY(180deg) scale(1.52) translateY(-2px);
+  }
+
+  .skill-icon {
+    font-size: 2.5em;
+    margin-bottom: 8px;
+  }
+
+  .skill-name {
+    font-size: 0.9em;
+  }
+
+  .skill-card-back {
+    font-size: 0.8em;
+    padding: 10px;
+  }
+
+  .education-content {
+    padding-left: 25px;
+  }
+
+  .education-content h2, 
+  .education-content h3, 
+  .education-content p {
+    margin-left: 20px;
+  }
+
+  .education-content h2 {
+    font-size: 1.2em;
+  }
+
+  .education-content h2::before {
+    left: -18px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .education-content h3 {
+    font-size: 1em;
+  }
+
+  .education-content p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page-layout {
+    margin: 60px auto 30px auto;
+    padding: 0 8px;
+  }
+
+  .sidebar-nav ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .sidebar-nav li {
+    width: 100%;
+  }
+
+  .sidebar-nav li a {
+    text-align: center;
+    padding: 10px 15px;
+  }
+
+  .section-card {
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+  }
+
+  .skills-content {
+    gap: 12px;
+  }
+
+  .skill-item-card {
+    min-width: 90px;
+    height: 90px;
+  }
+
+  .skill-item-card.is-flipped {
+    transform: rotateY(180deg) scale(1.3);
+  }
+
+  .skill-icon {
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
+  .skill-name {
+    font-size: 0.8em;
+  }
+
+  .skill-card-back {
+    font-size: 0.7em;
+    padding: 8px;
+  }
+
+  .education-content {
+    padding-left: 20px;
+  }
+
+  .education-content h2, 
+  .education-content h3, 
+  .education-content p {
+    margin-left: 15px;
+  }
+
+  .education-content h2 {
+    font-size: 1.1em;
+  }
+
+  .education-content h2::before {
+    left: -13px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .education-content::before {
+    left: 8px;
+  }
+}

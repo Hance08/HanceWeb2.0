@@ -49,3 +49,36 @@
 }
 
 /* Existing App.css content can go below or be integrated */
+
+/* ===== RESPONSIVE DESIGN FOR CTA BUTTONS ===== */
+
+@media (max-width: 768px) {
+  .ctaButtonPrimary,
+  .ctaButtonSecondary,
+  .ctaButtonDanger {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    border-radius: 6px;
+  }
+
+  .ctaButtonPrimary:hover,
+  .ctaButtonSecondary:hover,
+  .ctaButtonDanger:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaButtonPrimary,
+  .ctaButtonSecondary,
+  .ctaButtonDanger {
+    padding: 8px 16px;
+    font-size: 0.85em;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  #root {
+    padding: 0;
+  }
+}

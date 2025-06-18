@@ -13,3 +13,45 @@
 .fa-java { /* Targe */
     color: #007396; /* Java's blue */
   }
+
+/* ===== RESPONSIVE DESIGN FOR ICONS ===== */
+
+@media (max-width: 768px) {
+  .fa-flutter,
+  .fa-python,
+  .fa-js,
+  .fa-java {
+    font-size: 0.9em;
+    transition: color 0.2s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .fa-flutter,
+  .fa-python,
+  .fa-js,
+  .fa-java {
+    font-size: 0.8em;
+  }
+}
+
+/* 手機觸控優化 - 確保圖標有足夠的點擊區域 */
+@media (max-width: 768px) {
+  .skill-icon, 
+  .social-icon,
+  .nav-icon {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .skill-icon:hover,
+  .social-icon:hover,
+  .nav-icon:hover {
+    transform: scale(1.1);
+  }
+}

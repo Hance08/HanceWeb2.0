@@ -156,4 +156,136 @@
 .actionLinks a:hover {
   color: #FB8C00;
   text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN IMPROVEMENTS ===== */
+
+@media (max-width: 1024px) {
+  .portfolioContainer {
+    max-width: 900px;
+    margin: 80px auto 30px auto;
+    padding: 15px;
+  }
+
+  .portfolioImage {
+    height: 200px;
+  }
+
+  .itemTextContent h3 {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolioContainer {
+    max-width: 100%;
+    margin: 60px auto 30px auto;
+    padding: 10px;
+  }
+
+  .portfolioItem {
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  .portfolioImage {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+  }
+
+  .itemTextContent {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .itemTextContent h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  .itemTextContent p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    font-size: 0.8em;
+    padding: 4px 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  .actionLinks {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .actionLinks a {
+    font-size: 0.9em;
+  }
+
+  .portfolioGrid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioContainer {
+    margin: 50px auto 20px auto;
+    padding: 8px;
+  }
+
+  .portfolioItem {
+    padding: 12px;
+  }
+
+  .portfolioImage {
+    height: 150px;
+    margin-bottom: 12px;
+  }
+
+  .itemTextContent h3 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+
+  .itemTextContent p {
+    font-size: 0.85em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .tag {
+    font-size: 0.75em;
+    padding: 3px 8px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  .tagContainer {
+    margin-bottom: 12px;
+  }
+
+  .actionLinks {
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .actionLinks a {
+    font-size: 0.85em;
+  }
+
+  .portfolioGrid {
+    gap: 15px;
+  }
+
+  .errorMessage,
+  .loadingMessage,
+  .noItemsMessage {
+    font-size: 1em;
+    padding: 20px;
+  }
 } 
