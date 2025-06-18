@@ -293,10 +293,355 @@
     max-width: 400px;
     margin: 0 auto;
   }
+
+  /* Portfolio preview adjustments for tablets */
+  .portfolioCardsColumn {
+    margin: 0;
+    max-width: 300px;
+  }
+
+  .portfolioCardItem {
+    width: 300px;
+  }
+
+  .assistantContainer {
+    width: 400px;
+    height: 400px;
+    right: 5%;
+  }
 }
 
 @media (max-width: 768px) {
   .aboutMeImageContainer {
     max-width: 300px;
+  }
+
+  /* Hero section mobile optimization */
+  .subWhiteContainer,
+  .subBlackContainer {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 4%;
+    justify-content: center;
+  }
+
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroMainContent {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .mainGreeting {
+    font-size: 3.5em;
+    line-height: 0.8;
+    margin-bottom: 20px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+  .socialLinksContainer {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .socialLink {
+    font-size: 1.5em;
+  }
+
+  /* About me section mobile */
+  .aboutMeContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutMePreview {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .aboutMeTitle {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+  }
+
+  .aboutMeText {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
+  /* Portfolio preview mobile */
+  .portfolioPreview {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .portfolioInfo {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .portfolioPreviewTitle {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .portfolioPreviewText {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .portfolioCardsColumn {
+    flex-direction: row;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .portfolioCardItem {
+    width: 250px;
+    height: 150px;
+  }
+
+  /* Hide or adjust assistant animation on mobile */
+  .assistantContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens (phones in portrait) */
+  .subWhiteContainer,
+  .subBlackContainer {
+    padding: 15px 3%;
+  }
+
+  .mainGreeting {
+    font-size: 2.8em;
+    line-height: 0.9;
+  }
+
+  .welcomeSubtitle {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+  }
+
+  .socialLinksContainer {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .socialLink {
+    font-size: 1.3em;
+  }
+
+  .aboutMeTitle,
+  .portfolioPreviewTitle {
+    font-size: 1.8em;
+  }
+
+  .aboutMeText,
+  .portfolioPreviewText {
+    font-size: 0.9em;
+  }
+
+  .aboutMeCta,
+  .portfolioPreviewCta {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+
+  .portfolioCardItem {
+    width: 200px;
+    height: 120px;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化垂直空間使用 */
+  
+  .subWhiteContainer,
+  .subBlackContainer {
+    height: auto;
+    min-height: 100vh;
+    padding: 10px 4%;
+    justify-content: center;
+  }
+
+  .heroContainer {
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .heroMainContent {
+    max-width: 60%;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .mainGreeting {
+    font-size: 2.2em;
+    line-height: 0.9;
+    margin-bottom: 10px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+
+  .socialLinksContainer {
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .socialLink {
+    font-size: 1.2em;
+  }
+
+  /* About me section landscape */
+  .aboutMeContainer {
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .aboutMePreview {
+    max-width: 60%;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .aboutMeTitle {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  .aboutMeText {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+
+  .aboutMeImageContainer {
+    max-width: 35%;
+    flex-shrink: 0;
+  }
+
+  /* Portfolio preview landscape */
+  .portfolioPreview {
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .portfolioInfo {
+    max-width: 60%;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .portfolioPreviewTitle {
+    font-size: 1.8em;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .portfolioPreviewText {
+    font-size: 0.9em;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .portfolioCardsColumn {
+    flex-direction: column;
+    gap: 15px;
+    max-width: 35%;
+    margin: 0;
+  }
+
+  .portfolioCardItem {
+    width: 180px;
+    height: 100px;
+  }
+
+  /* Hide assistant on landscape to save space */
+  .assistantContainer {
+    display: none;
+  }
+
+  /* Reduce spacing for landscape */
+  .aboutMeCta,
+  .portfolioPreviewCta {
+    padding: 8px 16px;
+    font-size: 0.85em;
+    margin-top: 10px;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* Extra compact landscape mode */
+  
+  .subWhiteContainer,
+  .subBlackContainer {
+    padding: 8px 3%;
+  }
+
+  .mainGreeting {
+    font-size: 1.8em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 1em;
+    margin-bottom: 12px;
+  }
+
+  .aboutMeTitle,
+  .portfolioPreviewTitle {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+
+  .aboutMeText,
+  .portfolioPreviewText {
+    font-size: 0.8em;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .socialLinksContainer {
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .socialLink {
+    font-size: 1em;
+  }
+
+  .portfolioCardItem {
+    width: 150px;
+    height: 90px;
   }
 }

@@ -60,4 +60,171 @@
 
 .submitButton:hover {
   background-color: #007bff;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .loginPageContainer {
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .loginFormContainer {
+    padding: 30px 25px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 10px;
+  }
+
+  .title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .formGroup {
+    margin-bottom: 18px;
+  }
+
+  .label {
+    font-size: 0.9em;
+    margin-bottom: 6px;
+  }
+
+  .input {
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .submitButton {
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .errorMessage {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginPageContainer {
+    padding: 15px;
+  }
+
+  .loginFormContainer {
+    padding: 25px 20px;
+    margin: 0 5px;
+  }
+
+  .title {
+    font-size: 1.6em;
+    margin-bottom: 18px;
+  }
+
+  .formGroup {
+    margin-bottom: 16px;
+  }
+
+  .input {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .submitButton {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化垂直空間 */
+  
+  .loginPageContainer {
+    padding: 15px;
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 5vh;
+  }
+
+  .loginFormContainer {
+    padding: 20px 25px;
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .formGroup {
+    margin-bottom: 12px;
+  }
+
+  .label {
+    font-size: 0.85em;
+    margin-bottom: 4px;
+  }
+
+  .input {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .submitButton {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .errorMessage {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* 極度緊湊的橫屏模式 */
+  
+  .loginPageContainer {
+    padding: 10px;
+    padding-top: 3vh;
+  }
+
+  .loginFormContainer {
+    padding: 15px 20px;
+    max-width: 400px;
+  }
+
+  .title {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+  }
+
+  .formGroup {
+    margin-bottom: 10px;
+  }
+
+  .label {
+    font-size: 0.8em;
+    margin-bottom: 3px;
+  }
+
+  .input {
+    padding: 6px;
+    font-size: 0.85em;
+  }
+
+  .submitButton {
+    padding: 8px;
+    font-size: 0.85em;
+  }
+
+  .errorMessage {
+    font-size: 0.75em;
+    margin-bottom: 8px;
+  }
 } 

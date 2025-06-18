@@ -1,0 +1,581 @@
+/* responsive-base.css - 手機響應式基礎樣式 */
+
+/* ===== GLOBAL RESPONSIVE BASE STYLES ===== */
+
+/* 基礎響應式重置 */
+* {
+  box-sizing: border-box;
+}
+
+/* 防止手機橫向滾動 */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* 基礎字體大小調整 */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* ===== UTILITY CLASSES FOR MOBILE ===== */
+
+/* 手機顯示控制 */
+.mobile-hidden {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+/* 響應式容器 */
+.responsive-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .responsive-container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-container {
+    padding: 0 10px;
+  }
+}
+
+/* 響應式網格 */
+.responsive-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .responsive-grid {
+    gap: 15px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-grid {
+    gap: 12px;
+  }
+}
+
+/* 響應式Flexbox */
+.responsive-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .responsive-flex {
+    gap: 15px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-flex {
+    gap: 12px;
+  }
+}
+
+/* 響應式間距 */
+.responsive-spacing {
+  margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .responsive-spacing {
+    margin: 30px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-spacing {
+    margin: 20px 0;
+  }
+}
+
+/* 響應式文字 */
+.responsive-text-large {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.responsive-text-medium {
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.responsive-text-small {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .responsive-text-large {
+    font-size: 2rem;
+  }
+  
+  .responsive-text-medium {
+    font-size: 1.5rem;
+  }
+  
+  .responsive-text-small {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-text-large {
+    font-size: 1.8rem;
+  }
+  
+  .responsive-text-medium {
+    font-size: 1.3rem;
+  }
+  
+  .responsive-text-small {
+    font-size: 1rem;
+  }
+}
+
+/* 響應式圖片 */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 響應式影片 */
+.responsive-video {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* 手機觸控優化 */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px;
+  }
+}
+
+/* 響應式表單 */
+.responsive-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .responsive-form {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+.responsive-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .responsive-input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 響應式卡片 */
+.responsive-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .responsive-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+/* 響應式導航 */
+.responsive-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .responsive-nav {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+/* 響應式按鈕組 */
+.responsive-button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .responsive-button-group {
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .responsive-button-group > * {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-button-group {
+    gap: 8px;
+  }
+  
+  .responsive-button-group > * {
+    max-width: 200px;
+  }
+}
+
+/* 避免文字選取問題 */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 手機滾動優化 */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* 響應式邊距工具類 */
+@media (max-width: 768px) {
+  .m-0-mobile { margin: 0 !important; }
+  .mt-0-mobile { margin-top: 0 !important; }
+  .mb-0-mobile { margin-bottom: 0 !important; }
+  .ml-0-mobile { margin-left: 0 !important; }
+  .mr-0-mobile { margin-right: 0 !important; }
+  
+  .p-0-mobile { padding: 0 !important; }
+  .pt-0-mobile { padding-top: 0 !important; }
+  .pb-0-mobile { padding-bottom: 0 !important; }
+  .pl-0-mobile { padding-left: 0 !important; }
+  .pr-0-mobile { padding-right: 0 !important; }
+}
+
+/* 響應式文字對齊 */
+@media (max-width: 768px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  .text-left-mobile {
+    text-align: left !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化垂直空間 */
+  
+  html {
+    font-size: 14px;
+  }
+
+  /* 橫屏容器優化 */
+  .responsive-container {
+    padding: 0 15px;
+  }
+
+  /* 橫屏間距優化 */
+  .responsive-spacing {
+    margin: 20px 0;
+  }
+
+  /* 橫屏文字大小調整 */
+  .responsive-text-large {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+  
+  .responsive-text-medium {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+  
+  .responsive-text-small {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  /* 橫屏網格優化 */
+  .responsive-grid {
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  /* 橫屏Flexbox優化 */
+  .responsive-flex {
+    gap: 12px;
+    flex-direction: row;
+  }
+
+  /* 橫屏卡片優化 */
+  .responsive-card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* 橫屏導航優化 */
+  .responsive-nav {
+    flex-direction: row;
+    padding: 8px 15px;
+    gap: 15px;
+  }
+
+  /* 橫屏按鈕組優化 */
+  .responsive-button-group {
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .responsive-button-group > * {
+    width: auto;
+    max-width: 150px;
+  }
+
+  /* 橫屏表單優化 */
+  .responsive-form {
+    max-width: 60%;
+    padding: 0 5px;
+  }
+
+  .responsive-input {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  /* 橫屏觸控目標優化 */
+  .touch-target {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 8px;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* 極度緊湊的橫屏模式 */
+  
+  html {
+    font-size: 13px;
+  }
+
+  /* 極緊湊容器 */
+  .responsive-container {
+    padding: 0 10px;
+  }
+
+  /* 極緊湊間距 */
+  .responsive-spacing {
+    margin: 15px 0;
+  }
+
+  /* 極緊湊文字 */
+  .responsive-text-large {
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+  
+  .responsive-text-medium {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+  
+  .responsive-text-small {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  /* 極緊湊網格 */
+  .responsive-grid {
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  /* 極緊湊Flexbox */
+  .responsive-flex {
+    gap: 8px;
+  }
+
+  /* 極緊湊卡片 */
+  .responsive-card {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  /* 極緊湊導航 */
+  .responsive-nav {
+    padding: 5px 10px;
+    gap: 10px;
+  }
+
+  /* 極緊湊按鈕組 */
+  .responsive-button-group {
+    gap: 6px;
+  }
+  
+  .responsive-button-group > * {
+    max-width: 120px;
+  }
+
+  /* 極緊湊表單 */
+  .responsive-form {
+    max-width: 70%;
+  }
+
+  .responsive-input {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  /* 極緊湊觸控目標 */
+  .touch-target {
+    min-height: 36px;
+    min-width: 36px;
+    padding: 6px;
+  }
+}
+
+/* ===== LANDSCAPE UTILITY CLASSES ===== */
+
+/* 橫屏顯示控制 */
+.landscape-hidden {
+  display: block;
+}
+
+.landscape-only {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  .landscape-hidden {
+    display: none !important;
+  }
+  
+  .landscape-only {
+    display: block !important;
+  }
+}
+
+/* 橫屏文字對齊 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .text-center-landscape {
+    text-align: center !important;
+  }
+  
+  .text-left-landscape {
+    text-align: left !important;
+  }
+  
+  .flex-row-landscape {
+    flex-direction: row !important;
+  }
+  
+  .flex-column-landscape {
+    flex-direction: column !important;
+  }
+}
+
+/* 橫屏邊距工具類 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .m-0-landscape { margin: 0 !important; }
+  .mt-0-landscape { margin-top: 0 !important; }
+  .mb-0-landscape { margin-bottom: 0 !important; }
+  .ml-0-landscape { margin-left: 0 !important; }
+  .mr-0-landscape { margin-right: 0 !important; }
+  
+  .p-0-landscape { padding: 0 !important; }
+  .pt-0-landscape { padding-top: 0 !important; }
+  .pb-0-landscape { padding-bottom: 0 !important; }
+  .pl-0-landscape { padding-left: 0 !important; }
+  .pr-0-landscape { padding-right: 0 !important; }
+  
+  /* 減少間距的工具類 */
+  .compact-spacing-landscape {
+    margin: 8px 0 !important;
+    padding: 8px !important;
+  }
+  
+  .compact-vertical-landscape {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+} 

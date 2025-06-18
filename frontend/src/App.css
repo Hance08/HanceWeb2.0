@@ -2,7 +2,7 @@
   max-width: 100%; /* Keep this to prevent overflow */
   width: 100%; /* Ensure #root takes full width of its parent (body) */
   /* margin: 0 auto; --- REMOVED to allow full-width children */
-  /* padding: 2rem; --- Kept commented as it was */
+  padding: 0;
   text-align: center;
 }
 
@@ -49,3 +49,81 @@
 }
 
 /* Existing App.css content can go below or be integrated */
+
+/* ===== RESPONSIVE DESIGN FOR CTA BUTTONS ===== */
+
+@media (max-width: 768px) {
+  .ctaButtonPrimary,
+  .ctaButtonSecondary,
+  .ctaButtonDanger {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    border-radius: 6px;
+  }
+
+  .ctaButtonPrimary:hover,
+  .ctaButtonSecondary:hover,
+  .ctaButtonDanger:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaButtonPrimary,
+  .ctaButtonSecondary,
+  .ctaButtonDanger {
+    padding: 8px 16px;
+    font-size: 0.85em;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  #root {
+    padding: 0;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* 橫屏模式：優化按鈕和間距 */
+  
+  .ctaButtonPrimary,
+  .ctaButtonSecondary,
+  .ctaButtonDanger {
+    padding: 6px 14px;
+    font-size: 0.8em;
+    border-radius: 5px;
+  }
+
+  .ctaButtonPrimary:hover,
+  .ctaButtonSecondary:hover,
+  .ctaButtonDanger:hover {
+    transform: translateY(-1px);
+  }
+
+  #root {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  /* 極度緊湊的橫屏模式 */
+  
+  .ctaButtonPrimary,
+  .ctaButtonSecondary,
+  .ctaButtonDanger {
+    padding: 5px 12px;
+    font-size: 0.75em;
+    max-width: 180px;
+  }
+
+  .ctaButtonPrimary:hover,
+  .ctaButtonSecondary:hover,
+  .ctaButtonDanger:hover {
+    transform: none;
+  }
+}
