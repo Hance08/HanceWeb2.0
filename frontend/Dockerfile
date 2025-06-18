@@ -25,6 +25,12 @@ FROM nginx:stable-alpine
 # 複製到 Nginx 預設的網站內容目錄
 COPY --from=builder /app/dist /usr/share/nginx/html
 
+# 確保 assets 目錄存在
+RUN mkdir -p /usr/share/nginx/html/assets
+
+# 複製 src/assets 目錄的內容到 /usr/share/nginx/html/assets
+COPY --from=builder /app/src/assets /usr/share/nginx/html/assets
+
 # 複製自訂的 Nginx 設定檔，以支援 React Router 這類的 SPA 路由
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
