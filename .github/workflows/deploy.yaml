@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Restore backend secret from GitHub Secrets
-        run: echo "${{ secrets.K8S_BACKEND_SECRET_B64 }}" | base64 --decode > k8s/backend-secret.yaml
+        run: echo "${{ secrets.K8S_BACKEND_SECRET_B64 }}" | base64 --decode > k8s/server-secret.yaml
 
       - name: Run Skaffold
         # 執行此指令，將後續的 docker 指令都指向 Minikube 內部的 Docker daemon
